@@ -1,0 +1,36 @@
+{
+    "name": "pantheon-systems/edge-integrations-wordpress-sdk",
+    "description": "A one-stop shop for integration your WordPress site on Pantheon with advanced Edge Integrations tools.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "symlink": true
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor",
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    },
+    "require": {
+        "composer/installers": "^2.0",
+        "pantheon-systems/pantheon-edge-integrations": "*",
+        "pantheon-systems/pantheon-wordpress-edge-integrations": "*"
+    },
+    "extra": {
+        "wordpress-install-dir": "web/wp",
+        "installer-paths": {
+            "web/wp-content/mu-plugins/{$name}/": [ "type:wordpress-muplugin" ],
+            "web/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ],
+            "web/wp-content/themes/{$name}/": [ "type:wordpress-theme" ]
+        }
+    }
+}
