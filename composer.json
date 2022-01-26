@@ -7,6 +7,10 @@
     "prefer-stable": true,
     "repositories": [
         {
+            "type": "composer",
+            "url": "https://packagist.org"
+        },
+        {
             "type": "path",
             "url": "packages/*",
             "symlink": true
