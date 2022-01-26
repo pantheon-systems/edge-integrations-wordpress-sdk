@@ -38,6 +38,12 @@ First, you'll need to get a copy of the [WordPress Edge Integrations plugin](htt
 git clone git@github.com:pantheon-systems/pantheon-wordpress-edge-integrations.git
 ```
 
+Alternately, you can use Composer to download the package.
+
+```bash
+composer require pantheon-systems/pantheon-wordpress-edge-integrations
+```
+
 #### Step 2: Install Pantheon Edge Integrations library
 
 Once you have the plugin downloaded, you'll need to run `composer install` to get the Pantheon Edge Integrations library. `cd` into the plugin's directory and run `composer install`. From the `wp-content/plugins` directory, run the following commands:
