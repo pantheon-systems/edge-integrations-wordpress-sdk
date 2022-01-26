@@ -26,33 +26,36 @@ That command will add this repository to your `/vendor` directory, as well as al
 
 You'll need to make sure your WordPress project is loading the Composer autoloader (`vendor/composer/autoload.php`). One way to do this is in a `mu-plugins` loader file like [this one](https://github.com/pantheon-systems/wordpress-bedrock-recommended/blob/master/packages/pantheon-wp-loader/loader.php) <!-- TODO: Update this link when this is broken out into a new repository -->, but other methods exist, such as adding an `include_once __DIR__ . '/vendor/composer/autoload.php` line in your `wp-config.php` or other file that runs before WordPress is executed.
 
-### Installing into a project without Integrated Composer but Composer is installed
+### Installing manually
 
-If you aren't running a project with Integrated Composer but you _do_ use Composer otherwise, you can still get started with the Edge Integrations WordPress SDK without too much trouble.
+If you aren't running a project with Integrated Composer but you _do_ use Composer otherwise, you can still get started with the Edge Integrations WordPress SDK without too much trouble. This still assumes you have Composer installed on at least one machine.
 
-#### Step 1: Clone this repository
+#### Step 1: Clone the WordPress Edge Integrations plugin
 
-The first step is cloning this repository:
+First, you'll need to get a copy of the [WordPress Edge Integrations plugin](https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations). Clone or download the plugin into your `wp-content/plugins` directory.
 
 ```bash
-git clone git@github.com:pantheon-systems/edge-integrations-wordpress-sdk.git
+git clone git@github.com:pantheon-systems/pantheon-wordpress-edge-integrations.git
 ```
 
-Where it's cloned isn't important, but we recommend cloning it into `mu-plugins`.
+#### Step 2: Install Pantheon Edge Integrations library
 
-#### Step 2: `composer install`
-
-After you've cloned the repository, you'll need to run `composer install` to pull down the dependent packages that make this SDK. `cd` into the directory you cloned into and run the `composer install` command. For example, if you cloned into `mu-plugins` your full command history will look like this:
+Once you have the plugin downloaded, you'll need to run `composer install` to get the Pantheon Edge Integrations library. `cd` into the plugin directory and run `composer install`. From the `wp-content/plugins` directory, run the following commands:
 
 ```bash
-cd mu-plugins
-git clone git@github.com:pantheon-systems/edge-integrations-wordpress-sdk.git
-cd edge-integrations-wordpress-sdk
+cd pantheon-wordpress-edge-integrations
 composer install
 ```
 
-Running the `install` command will pull down the [`pantheon-edge-integrations` library](https://github.com/pantheon-systems/pantheon-edge-integrations) and the [`pantheon-wordpress-edge-integrations` WordPress plugin](https://github.com/pantheon-systems/pantheon-edge-integrations).
+This will install `pantheon-edge-integrations` into the plugin's `vendor` directory. You'll still need to call the file(s) manually. <!-- TODO: Is this 100% accurate? We can maybe run a <?php if ( ! class_exists( 'HeaderData' ) ) ?> check in the plugin to see if we have the package and either display a message, attempt to load it manually, or bail otherwise. -->
 
-#### Step 3: Add to `mu-plugins` loader file
+Using a `mu-plugins/loader.php` file like the one linked above, add the Composer `autoload.php` file from the plugin to the `$mu_plugins` list. <!-- TODO: Validate that this still works. -->
 
-To load the library and the plugin, we need to tell WordPress about them, especially since they are now in a non-standard location.
+```php
+// Add your mu-plugins here.
+$mu_plugins = [
+	'/../plugins/pantheon-wordpress-edge-integrations/vendor/composer/autoload.php',
+];
+```
+
+Requiring the `autoload.php` file from inside the plugin will ensure that any files that are autoloaded using Composer will be loaded into WordPress. Alternately, you can `require` this file anywhere in your project that makes sense, for example, in a `wp-config.php` file or some file that's included from `wp-config`, as long as it is available before `plugins_loaded`.
