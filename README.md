@@ -40,7 +40,7 @@ git clone git@github.com:pantheon-systems/pantheon-wordpress-edge-integrations.g
 
 #### Step 2: Install Pantheon Edge Integrations library
 
-Once you have the plugin downloaded, you'll need to run `composer install` to get the Pantheon Edge Integrations library. `cd` into the plugin directory and run `composer install`. From the `wp-content/plugins` directory, run the following commands:
+Once you have the plugin downloaded, you'll need to run `composer install` to get the Pantheon Edge Integrations library. `cd` into the plugin's directory and run `composer install`. From the `wp-content/plugins` directory, run the following commands:
 
 ```bash
 cd pantheon-wordpress-edge-integrations
