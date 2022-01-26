@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b4f5f0d3858312057205e95107f927c",
+    "content-hash": "3429d5c98c6422fd3a1dd7361692c8d8",
     "packages": [
         {
             "name": "composer/installers",
@@ -152,41 +152,51 @@
         {
             "name": "pantheon-systems/pantheon-edge-integrations",
             "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "packages/pantheon-edge-integrations",
-                "reference": "195d579fda4773e039feb1ef42ebd5f9fdba0545"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pantheon-systems/pantheon-edge-integrations.git",
+                "reference": "402f73950ceffc30950800a0313c616725173c53"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-edge-integrations/zipball/402f73950ceffc30950800a0313c616725173c53",
+                "reference": "402f73950ceffc30950800a0313c616725173c53",
+                "shasum": ""
+            },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "classmap": [
                     "src/"
                 ],
                 "psr-4": {
-                    "Kalamuna\\SmartCDN\\": "src"
+                    "Pantheon\\EI\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "authors": [
-                {
-                    "name": "Kelly Jacobs",
-                    "email": "kelly@kalamuna.com"
-                }
-            ],
             "description": "Helper class for content personalization.",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/pantheon-systems/pantheon-edge-integrations/issues",
+                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/master"
+            },
+            "time": "2022-01-24T17:24:53+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-edge-integrations",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations.git",
+                "reference": "6a5a96799cc23cf41dc3a518cf6b521a0446d1bb"
+            },
             "dist": {
-                "type": "path",
-                "url": "packages/pantheon-wordpress-edge-integrations",
-                "reference": "25800c93dc1181a24f07629deb4651604bcb72bd"
+                "type": "zip",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/6a5a96799cc23cf41dc3a518cf6b521a0446d1bb",
+                "reference": "6a5a96799cc23cf41dc3a518cf6b521a0446d1bb",
+                "shasum": ""
             },
             "require": {
                 "pantheon-systems/pantheon-edge-integrations": "dev-master"
@@ -196,29 +206,23 @@
                 "humanmade/coding-standards": "^1.1",
                 "phpunit/phpunit": "^9.5"
             },
+            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
                     "Pantheon\\EI\\": "/inc/namespace.php"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "phpcs": [
-                    "vendor/bin/phpcs -s --standard=phpcs.ruleset.xml ."
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "WordPress plugin to support Pantheon Edge Integrations and personalization features",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/issues",
+                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/main"
+            },
+            "time": "2022-01-25T19:20:33+00:00"
         }
     ],
     "packages-dev": [],
