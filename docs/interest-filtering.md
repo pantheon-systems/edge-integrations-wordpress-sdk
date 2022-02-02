@@ -11,8 +11,8 @@ Engineers are able to customize the data used for interest personalization. Such
 `pantheon.ei.localized_terms`: modify terms before they are localized.
 
 ```bash
-add_filter( 'pantheon.ei.localized_terms', 'pantheon_add_ei_term' );
-function pantheon_add_ei_term( $terms ) {
+add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_add_term' );
+function pantheon_ei_add_term( $terms ) {
 	$terms[] = 'term-from-theme';
 
 	return $terms;
@@ -22,8 +22,8 @@ function pantheon_add_ei_term( $terms ) {
 `pantheon.ei.interest_threshold`: modify the interest threshold. Default `3`.
 
 ```bash
-add_filter( 'pantheon.ei.interest_threshold', 'pantheon_ei_threshold' );
-function pantheon_ei_threshold() {
+add_filter( 'pantheon.ei.interest_threshold', 'pantheon_ei_change_threshold' );
+function pantheon_ei_change_threshold() {
 	return 5;
 }
 ```
@@ -32,8 +32,8 @@ function pantheon_ei_threshold() {
 
 Replace default taxonomy:
 ```bash
-add_filter( 'pantheon.ei.taxonomy', 'pantheon_ei_taxonomy' );
-function pantheon_ei_taxonomy( $taxonomy ) {
+add_filter( 'pantheon.ei.taxonomy', 'pantheon_ei_replace_taxonomy' );
+function pantheon_ei_replace_taxonomy( $taxonomy ) {
 	$taxonomy = 'my-custom-taxonomy';
 
 	return $taxonomy;
@@ -42,8 +42,8 @@ function pantheon_ei_taxonomy( $taxonomy ) {
 
 Add interest taxonomy:
 ```bash
-add_filter( 'pantheon.ei.taxonomy', 'pantheon_ei_taxonomy' );
-function pantheon_ei_taxonomy( $taxonomy ) {
+add_filter( 'pantheon.ei.taxonomy', 'pantheon_ei_add_taxonomy' );
+function pantheon_ei_add_taxonomy( $taxonomy ) {
 	$taxonomy[] = 'my-custom-taxonomy';
 
 	return $taxonomy;
@@ -53,8 +53,8 @@ function pantheon_ei_taxonomy( $taxonomy ) {
 `pantheon.ei.post_types`: modify post type support. Default `post`.
 
 ```bash
-add_filter( 'pantheon.ei.post_types', 'pantheon_ei_post_type' );
-function pantheon_ei_post_type( $post_types ) {
+add_filter( 'pantheon.ei.post_types', 'pantheon_ei_add_post_type' );
+function pantheon_ei_add_post_type( $post_types ) {
 	$post_types[] = 'my-custom-post-type';
 
 	return $post_types;
