@@ -1,21 +1,16 @@
-# Interests
+# Interest filters
 
-Engineers are able to customize the data used for interest personalization. Such as:
-
-- Terms: The post terms used to define a personalized experience for an end user. Additional terms can be added, or existing terms can be excluded.
-- Threshold: The number of times a page with a particular taxonomy term should be viewed before that term is considered an interest.
-- Taxonomies: Define which taxonomies can be interests. `category` is the interest taxonomy by default.
-
-## Available filters
-
-### `pantheon.ei.localized_terms`
+## `pantheon.ei.localized_terms`
 
 Modify terms before they are localized.
 
-#### Parameters
+### Parameters
 
 $terms __(array)__ An array of terms to modify.
 
+### Example
+
+Add term to array:
 ```bash
 add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_add_term' );
 function pantheon_ei_add_term( $terms ) {
@@ -25,11 +20,12 @@ function pantheon_ei_add_term( $terms ) {
 }
 ```
 
+Remove term(s) from array:
 ```bash
 add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_remove_term' );
 function pantheon_ei_remove_term( $terms ) {
 	// This can be one or many terms.
-	$terms_to_remove = [ 'category-1' ,'category-2' ];
+	$terms_to_remove = [ 'category-1', 'category-2' ];
 
 	foreach ( $terms_to_remove as $term ) {
 		$key = array_search( $term, $terms );
@@ -38,18 +34,19 @@ function pantheon_ei_remove_term( $terms ) {
 		}
 	}
 
-	// Reset array index after removing terms.
 	return array_values( $terms );
 }
 ```
 
-### `pantheon.ei.interest_threshold`
+## `pantheon.ei.interest_threshold`
 
 Modify the interest threshold. Default `3`.
 
-#### Parameters
+### Parameters
 
 $threshold __(int)___ The interest threshold.
+
+### Example
 
 ```bash
 add_filter( 'pantheon.ei.interest_threshold', 'pantheon_ei_change_threshold' );
@@ -58,13 +55,15 @@ function pantheon_ei_change_threshold() {
 }
 ```
 
-### `pantheon.ei.taxonomy`
+## `pantheon.ei.taxonomy`
 
 Modify the targeted taxonomy. Default `category`.
 
-#### Parameters
+### Parameters
 
 $taxonomy __(array)__  An array of taxonomies to target for personalization.
+
+### Example
 
 Replace default taxonomy:
 ```bash
@@ -86,13 +85,15 @@ function pantheon_ei_add_taxonomy( $taxonomy ) {
 }
 ```
 
-### `pantheon.ei.post_types`
+## `pantheon.ei.post_types`
 
 Modify post type support. Default `post`.
 
-#### Parameters
+### Parameters
 
 $post_type __(array)__ An array of post types to target for personalization.
+
+### Example
 
 ```bash
 add_filter( 'pantheon.ei.post_types', 'pantheon_ei_add_post_type' );
