@@ -14,7 +14,7 @@ Modify terms before they are localized.
 
 #### Parameters
 
-$terms __(array)__ An array of terms to add.
+$terms __(array)__ An array of terms to modify.
 
 ```bash
 add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_add_term' );
@@ -22,6 +22,24 @@ function pantheon_ei_add_term( $terms ) {
 	$terms[] = 'term-from-theme';
 
 	return $terms;
+}
+```
+
+```bash
+add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_remove_term' );
+function pantheon_ei_remove_term( $terms ) {
+	// This can be one or many terms.
+	$terms_to_remove = [ 'category-1' ,'category-2' ];
+
+	foreach ( $terms_to_remove as $term ) {
+		$key = array_search( $term, $terms );
+		if ( $key !== false ) {
+			unset( $terms[ $key ] );
+		}
+	}
+
+	// Reset array index after removing terms.
+	return array_values( $terms );
 }
 ```
 
