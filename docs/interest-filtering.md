@@ -8,7 +8,13 @@ Engineers are able to customize the data used for interest personalization. Such
 
 ## Available filters
 
-`pantheon.ei.localized_terms`: modify terms before they are localized.
+### `pantheon.ei.localized_terms`
+
+Modify terms before they are localized.
+
+#### Parameters
+
+$terms __(array)__ An array of terms to add.
 
 ```bash
 add_filter( 'pantheon.ei.localized_terms', 'pantheon_ei_add_term' );
@@ -19,7 +25,13 @@ function pantheon_ei_add_term( $terms ) {
 }
 ```
 
-`pantheon.ei.interest_threshold`: modify the interest threshold. Default `3`.
+### `pantheon.ei.interest_threshold`
+
+Modify the interest threshold. Default `3`.
+
+#### Parameters
+
+$threshold __(int)___ The interest threshold.
 
 ```bash
 add_filter( 'pantheon.ei.interest_threshold', 'pantheon_ei_change_threshold' );
@@ -28,7 +40,13 @@ function pantheon_ei_change_threshold() {
 }
 ```
 
-`pantheon.ei.taxonomy`: modify the targeted taxonomy. Default `category`.
+### `pantheon.ei.taxonomy`
+
+Modify the targeted taxonomy. Default `category`.
+
+#### Parameters
+
+$taxonomy __(array)__  An array of taxonomies to target for personalization.
 
 Replace default taxonomy:
 ```bash
@@ -50,7 +68,13 @@ function pantheon_ei_add_taxonomy( $taxonomy ) {
 }
 ```
 
-`pantheon.ei.post_types`: modify post type support. Default `post`.
+### `pantheon.ei.post_types`
+
+Modify post type support. Default `post`.
+
+#### Parameters
+
+$post_type __(array)__ An array of post types to target for personalization.
 
 ```bash
 add_filter( 'pantheon.ei.post_types', 'pantheon_ei_add_post_type' );
