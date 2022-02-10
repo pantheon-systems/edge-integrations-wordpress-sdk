@@ -83,7 +83,7 @@ Allows the geolocation data to be filtered. This filter fires after the data is 
 
 #### Parameters
 
-__(string)_ The requested geolocation data.
+_(string)_ The requested geolocation data.
 
 ```php
 add_filter( 'pantheon.ei.get_geo', 'override_get_geo' );
