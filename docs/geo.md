@@ -109,7 +109,7 @@ Note: This does not affect the actual data types that are returned in the header
 
 #### Parameters
 
-__(array)_ The list of geolocation data types.
+_(array)_ The list of geolocation data types.
 
 #### Example
 
@@ -151,11 +151,11 @@ Allows developers to hook into the geolocation data retrieval process and access
 
 #### Parameters
 
-`$value` __(string)_ The geolocation value.
+`$value` _(string)_ The geolocation value.
 
-`$data_type` __(string)_ The requested geolocation data type.
+`$data_type` _(string)_ The requested geolocation data type.
 
-`$data` __(mixed)_ Data passed to the `EI\HeaderData` class. By default, this is pulled from the `$_SERVER` superglobal.
+`$data` _(mixed)_ Data passed to the `EI\HeaderData` class. By default, this is pulled from the `$_SERVER` superglobal.
 
 #### Example
 ```php
