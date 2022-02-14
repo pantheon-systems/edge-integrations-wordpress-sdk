@@ -1,4 +1,4 @@
-# Interest
+# WordPress Edge Integrations: Interest
 
 ## Function reference
 
@@ -8,7 +8,11 @@ Return or alter interest data in the global header.
 
 #### Parameters
 
-$data __(array)__ Data to pass to the HeaderData class.
+__(array)__ Data to pass to the HeaderData class. If an empty arrat is passed, `get_interest` will return all Interest data.
+
+#### Return
+
+_(string)_ The interest data in a JSON encoded string.
 
 #### Example
 
@@ -20,7 +24,7 @@ $interest = Interest\get_interest();
 
 // Manually pass data to interest header.
 $data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
-$interest = Interest\get_interest( array $data );
+$interest = Interest\get_interest( $data );
 ```
 
 ### `set_interest`
@@ -37,14 +41,16 @@ $data __(array)__ Data to pass to the HeaderData class.
 ```php
 use Pantheon\EI\WP\Interest;
 
-$input = [
+$key = [ 'Comes' ];
+
+$data = [
     'HTTP_IGNORED' => 'HTTP Ignored Entry',
     'IGNORED_ENTRY' => 'Completely ignored entry',
     'HTTP_SHOULD_BE_FOUND' => 'Should be found',
     'HTTP_VARY' => 'Something, Wicked, This, Way',
 ];
 
-Interest\set_interest( [ 'Comes' ], $input )
+Interest\set_interest( $key, $data )
 ```
 
 ## Filter reference
@@ -55,7 +61,7 @@ Modify terms before they are localized.
 
 #### Parameters
 
-$terms __(array)__ An array of terms to modify.
+__(array)__ An array of terms to modify.
 
 #### Example
 
@@ -93,7 +99,7 @@ Modify the interest threshold. Default `3`.
 
 #### Parameters
 
-$threshold __(int)___ The interest threshold.
+__(int)___ The interest threshold.
 
 #### Example
 
@@ -110,7 +116,7 @@ Modify the targeted taxonomy. Default `category`.
 
 ### Parameters
 
-$taxonomy __(array)__  An array of taxonomies to target for personalization.
+__(array)__  An array of taxonomies to target for personalization.
 
 #### Example
 
@@ -140,7 +146,7 @@ Modify post type support. Default `post`.
 
 #### Parameters
 
-$post_type __(array)__ An array of post types to target for personalization.
+__(array)__ An array of post types to target for personalization.
 
 #### Example
 
@@ -159,14 +165,15 @@ Get the interest data from the HeaderData class and allow it to be modified.
 
 #### Parameters
 
-$data __(array)__ The full, parsed Interest data as an array.
+__(array)__ The full, parsed Interest data as an array.
 
 #### Example
 
 ```php
 add_filter( 'pantheon.ei.parsed_interest_data', 'pantheon_ei_parsed_interest_data' );
 function pantheon_ei_parsed_interest_data( array $data ) : array {
-	// do something with $data here.
+	// Add term to array of interests.
+	$data[] = 'some-interest';
 
 	return $data;
 }
@@ -178,15 +185,14 @@ Modify HeaderData being set as a vary header from set_interest.
 
 #### Parameters
 
-$data __(array)__ Interest data as an array.
+__(array)__ Interest data as an array.
 
 #### Example
 
 ```php
 add_filter( 'pantheon.ei.set_interest_data', 'pantheon_ei_set_interest_data' );
-function pantheon_ei_parsed_interest_data( array $data ) : array {
-	// modify $data before it's set as a vary header.
-
-	return $data;
+function pantheon_ei_set_interest_data( array $data ) : array {
+	// Remove last element from $data.
+	return array_pop( $data );
 }
 ```
