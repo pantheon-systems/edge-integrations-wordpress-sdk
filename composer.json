@@ -27,7 +27,7 @@
     "require": {
         "composer/installers": "^2.0",
         "pantheon-systems/pantheon-edge-integrations": "*",
-        "pantheon-systems/pantheon-wordpress-edge-integrations": "*"
+        "pantheon-systems/pantheon-wordpress-edge-integrations": "^0.2"
     },
     "extra": {}
 }

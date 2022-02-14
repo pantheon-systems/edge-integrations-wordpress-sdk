@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3429d5c98c6422fd3a1dd7361692c8d8",
+    "content-hash": "c81213c2293d58686cdd8e9a32eeb648",
     "packages": [
         {
             "name": "composer/installers",
@@ -151,27 +151,30 @@
         },
         {
             "name": "pantheon-systems/pantheon-edge-integrations",
-            "version": "dev-master",
+            "version": "dev-cp-97--singleton",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon-edge-integrations.git",
-                "reference": "402f73950ceffc30950800a0313c616725173c53"
+                "reference": "1b8a0018148c77be924c9f38adc097010c85cf60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/pantheon-edge-integrations/zipball/402f73950ceffc30950800a0313c616725173c53",
-                "reference": "402f73950ceffc30950800a0313c616725173c53",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-edge-integrations/zipball/1b8a0018148c77be924c9f38adc097010c85cf60",
+                "reference": "1b8a0018148c77be924c9f38adc097010c85cf60",
                 "shasum": ""
             },
-            "default-branch": true,
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.6"
+            },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "src/"
-                ],
                 "psr-4": {
                     "Pantheon\\EI\\": "src"
-                }
+                },
+                "classmap": [
+                    "src/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -180,38 +183,40 @@
             "description": "Helper class for content personalization.",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/master"
+                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/cp-97--singleton"
             },
-            "time": "2022-01-24T17:24:53+00:00"
+            "time": "2022-02-04T18:17:36+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-edge-integrations",
-            "version": "dev-main",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations.git",
-                "reference": "6a5a96799cc23cf41dc3a518cf6b521a0446d1bb"
+                "reference": "c853d3e6ca54535e7273c9cc2733fb8fbfa367b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/6a5a96799cc23cf41dc3a518cf6b521a0446d1bb",
-                "reference": "6a5a96799cc23cf41dc3a518cf6b521a0446d1bb",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/c853d3e6ca54535e7273c9cc2733fb8fbfa367b3",
+                "reference": "c853d3e6ca54535e7273c9cc2733fb8fbfa367b3",
                 "shasum": ""
             },
             "require": {
-                "pantheon-systems/pantheon-edge-integrations": "dev-master"
+                "pantheon-systems/pantheon-edge-integrations": "dev-cp-97--singleton"
             },
             "require-dev": {
                 "consolidation/robo": "^3.0",
                 "humanmade/coding-standards": "^1.1",
-                "phpunit/phpunit": "^9.5"
+                "phpunit/phpunit": "^9.5",
+                "wordpress/wordpress": "dev-master"
             },
-            "default-branch": true,
             "type": "wordpress-plugin",
             "autoload": {
-                "psr-4": {
-                    "Pantheon\\EI\\": "/inc/namespace.php"
-                }
+                "files": [
+                    "inc/geo.php",
+                    "inc/interest.php",
+                    "inc/namespace.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -220,9 +225,9 @@
             "description": "WordPress plugin to support Pantheon Edge Integrations and personalization features",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/main"
+                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.0"
             },
-            "time": "2022-01-25T19:20:33+00:00"
+            "time": "2022-02-14T21:41:32+00:00"
         }
     ],
     "packages-dev": [],
