@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c81213c2293d58686cdd8e9a32eeb648",
+    "content-hash": "e6ff76233debcc240fb7f2a58b076616",
     "packages": [
         {
             "name": "composer/installers",
@@ -150,6 +150,57 @@
             "time": "2021-09-13T08:21:20+00:00"
         },
         {
+            "name": "openeuropa/composer-artifacts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openeuropa/composer-artifacts.git",
+                "reference": "11c0a02c90a854109e73211f3f3759b4a5911f5a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openeuropa/composer-artifacts/zipball/11c0a02c90a854109e73211f3f3759b4a5911f5a",
+                "reference": "11c0a02c90a854109e73211f3f3759b4a5911f5a",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "composer/composer": "~1.6 || ~2.0",
+                "cweagans/composer-patches": "^1.6",
+                "openeuropa/code-review": "2.x-dev",
+                "phpunit/phpunit": "^7.5"
+            },
+            "default-branch": true,
+            "type": "composer-plugin",
+            "extra": {
+                "class": "OpenEuropa\\ComposerArtifacts\\Plugin",
+                "enable-patching": true,
+                "composer-exit-on-patch-failure": true
+            },
+            "autoload": {
+                "psr-4": {
+                    "OpenEuropa\\ComposerArtifacts\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "EUPL-1.2"
+            ],
+            "description": "Composer plugin that allows to download a specified artifact instead of the default package.",
+            "keywords": [
+                "artifacts",
+                "composer-plugin"
+            ],
+            "support": {
+                "issues": "https://github.com/openeuropa/composer-artifacts/issues",
+                "source": "https://github.com/openeuropa/composer-artifacts/tree/master"
+            },
+            "time": "2021-09-08T08:17:51+00:00"
+        },
+        {
             "name": "pantheon-systems/pantheon-edge-integrations",
             "version": "dev-cp-97--singleton",
             "source": {
@@ -233,7 +284,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "openeuropa/composer-artifacts": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
