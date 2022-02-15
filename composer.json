@@ -36,8 +36,7 @@
             "pantheon-systems/pantheon-wordpress-edge-integrations": {
               "dist": {
                 "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.2/main.zip",
-                "type": "zip",
-                "checksum": "903ece68e7ade38f59fe7f84b12f951ad35e3932"
+                "type": "zip"
               }
             }
         }
