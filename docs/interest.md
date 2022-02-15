@@ -8,7 +8,7 @@ Return or alter interest data in the global header.
 
 #### Parameters
 
-__(array)__ Data to pass to the HeaderData class. If an empty arrat is passed, `get_interest` will return all Interest data.
+_(array)_ Data to pass to the HeaderData class. If an empty arrat is passed, `get_interest` will return all Interest data.
 
 #### Return
 
@@ -33,8 +33,9 @@ Set the interest header key and data.
 
 #### Parameters
 
-$key __(array)__ Key for the header, or array of keys.
-$data __(array)__ Data to pass to the HeaderData class.
+`$key` _(array)_ Key for the header, or array of keys.
+
+`$data` _(array)_ Data to pass to the HeaderData class.
 
 #### Example
 
@@ -61,7 +62,7 @@ Modify terms before they are localized.
 
 #### Parameters
 
-__(array)__ An array of terms to modify.
+_(array)_ An array of terms to modify.
 
 #### Example
 
@@ -99,7 +100,7 @@ Modify the interest threshold. Default `3`.
 
 #### Parameters
 
-__(int)___ The interest threshold.
+_(int)_ The interest threshold.
 
 #### Example
 
@@ -116,7 +117,7 @@ Modify the targeted taxonomy. Default `category`.
 
 ### Parameters
 
-__(array)__  An array of taxonomies to target for personalization.
+_(array)_  An array of taxonomies to target for personalization.
 
 #### Example
 
@@ -146,7 +147,7 @@ Modify post type support. Default `post`.
 
 #### Parameters
 
-__(array)__ An array of post types to target for personalization.
+_(array)_ An array of post types to target for personalization.
 
 #### Example
 
@@ -165,7 +166,7 @@ Get the interest data from the HeaderData class and allow it to be modified.
 
 #### Parameters
 
-__(array)__ The full, parsed Interest data as an array.
+_(array)_ The full, parsed Interest data as an array.
 
 #### Example
 
@@ -185,7 +186,7 @@ Modify HeaderData being set as a vary header from set_interest.
 
 #### Parameters
 
-__(array)__ Interest data as an array.
+_(array)_ Interest data as an array.
 
 #### Example
 
