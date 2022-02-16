@@ -35,7 +35,7 @@
         "artifacts": {
             "pantheon-systems/pantheon-wordpress-edge-integrations": {
               "dist": {
-                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.2/main.zip",
+                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.3/main.zip",
                 "type": "zip"
               }
             }

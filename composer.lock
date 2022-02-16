@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6ddb26c37ce446d3a3e81b537da65f",
+    "content-hash": "0d3fa6032dc9b71ef0d0ca397634924d",
     "packages": [
         {
             "name": "composer/installers",
@@ -240,11 +240,11 @@
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-edge-integrations",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.2/main.zip",
-                "reference": "da617ae918bf700b4d52ed9abe861964e15cf1ec",
+                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.3/main.zip",
+                "reference": "58e492088c387f37090651157aa170b8936bfe24",
                 "shasum": ""
             },
             "require": {
@@ -271,9 +271,9 @@
             "description": "WordPress plugin to support Pantheon Edge Integrations and personalization features",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.2"
+                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.3"
             },
-            "time": "2022-02-15T16:42:46+00:00"
+            "time": "2022-02-16T20:34:12+00:00"
         }
     ],
     "packages-dev": [],
