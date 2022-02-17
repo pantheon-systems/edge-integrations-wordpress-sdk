@@ -111,6 +111,23 @@ function pantheon_ei_change_threshold() : int {
 }
 ```
 
+### `pantheon.ei.cookie_expiration`
+
+Modify the number of days until the interest cookie expires. Default `14`.
+
+#### Parameters
+
+_(int)_ The number of days until the cookie expires.
+
+#### Example
+
+```php
+add_filter( 'pantheon.ei.cookie_expiration', 'pantheon_ei_change_cookie_expiration' );
+function pantheon_ei_change_cookie_expiration() : int {
+	return 7;
+}
+```
+
 ## `pantheon.ei.taxonomy`
 
 Modify the targeted taxonomy. Default `category`.
