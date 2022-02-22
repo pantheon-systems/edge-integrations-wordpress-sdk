@@ -18,7 +18,7 @@ Interests can be then fetched from the HeaderData class and used to serve person
 
 ### Default Behavior and Available Customizations
 
-Out of the box this plugin uses the default taxonomy, `category`, to determine Interests. This taxonomy can be changed, or added to, using the `pantheon.ei.taxonomy` filter.
+Out of the box the WordPress plugin uses the default taxonomy, `category`, to determine Interests. This taxonomy can be changed, or added to, using the `pantheon.ei.taxonomy` filter.
 
 The number of views it takes for a term to be considered an Interest is set to 3. This number, or threshold, can be modified using the `pantheon.ei.interest_threshold` filter.
 
@@ -31,3 +31,7 @@ Interests can be tested or verified in a couple of different ways.
 The `pantheon.ei.parsed_interest_data` filter is available to get and modify Interest data from the HeaderData class. With the filter, engineers can confirm if an Interest is set, and modify the Interest data before it's returned by the `get_interest` function.
 
 Using the `get_interest` function, engineers can return the Interest(s) from the HeaderData class, which can be used with the `WP_Query` class to fetch personalized content for a given visitor.
+
+### Code Samples
+
+See [interest.md](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/interest.md) for code samples of the functions and filters mentioned above.
