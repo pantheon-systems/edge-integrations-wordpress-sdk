@@ -21,24 +21,13 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "composer/installers": true,
-            "openeuropa/composer-artifacts": true
+            "composer/installers": true
         }
     },
     "require": {
         "composer/installers": "^2.0",
-        "openeuropa/composer-artifacts": "dev-master",
         "pantheon-systems/pantheon-edge-integrations": "*",
         "pantheon-systems/pantheon-wordpress-edge-integrations": "^0.2"
     },
-    "extra": {
-        "artifacts": {
-            "pantheon-systems/pantheon-wordpress-edge-integrations": {
-              "dist": {
-                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.3/main.zip",
-                "type": "zip"
-              }
-            }
-        }
-    }
+    "extra": {}
 }

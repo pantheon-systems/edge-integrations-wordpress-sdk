@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d3fa6032dc9b71ef0d0ca397634924d",
+    "content-hash": "c81213c2293d58686cdd8e9a32eeb648",
     "packages": [
         {
             "name": "composer/installers",
@@ -150,74 +150,24 @@
             "time": "2021-09-13T08:21:20+00:00"
         },
         {
-            "name": "openeuropa/composer-artifacts",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/openeuropa/composer-artifacts.git",
-                "reference": "11c0a02c90a854109e73211f3f3759b4a5911f5a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/openeuropa/composer-artifacts/zipball/11c0a02c90a854109e73211f3f3759b4a5911f5a",
-                "reference": "11c0a02c90a854109e73211f3f3759b4a5911f5a",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1 || ^2.0",
-                "php": ">=7.2"
-            },
-            "require-dev": {
-                "composer/composer": "~1.6 || ~2.0",
-                "cweagans/composer-patches": "^1.6",
-                "openeuropa/code-review": "2.x-dev",
-                "phpunit/phpunit": "^7.5"
-            },
-            "default-branch": true,
-            "type": "composer-plugin",
-            "extra": {
-                "class": "OpenEuropa\\ComposerArtifacts\\Plugin",
-                "enable-patching": true,
-                "composer-exit-on-patch-failure": true
-            },
-            "autoload": {
-                "psr-4": {
-                    "OpenEuropa\\ComposerArtifacts\\": "./src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "EUPL-1.2"
-            ],
-            "description": "Composer plugin that allows to download a specified artifact instead of the default package.",
-            "keywords": [
-                "artifacts",
-                "composer-plugin"
-            ],
-            "support": {
-                "issues": "https://github.com/openeuropa/composer-artifacts/issues",
-                "source": "https://github.com/openeuropa/composer-artifacts/tree/master"
-            },
-            "time": "2021-09-08T08:17:51+00:00"
-        },
-        {
             "name": "pantheon-systems/pantheon-edge-integrations",
-            "version": "dev-cp-97--singleton",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon-edge-integrations.git",
-                "reference": "1b8a0018148c77be924c9f38adc097010c85cf60"
+                "reference": "4a6447a6d009ca8f6410390f4f0971ee7cd0de19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/pantheon-edge-integrations/zipball/1b8a0018148c77be924c9f38adc097010c85cf60",
-                "reference": "1b8a0018148c77be924c9f38adc097010c85cf60",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-edge-integrations/zipball/4a6447a6d009ca8f6410390f4f0971ee7cd0de19",
+                "reference": "4a6447a6d009ca8f6410390f4f0971ee7cd0de19",
                 "shasum": ""
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -234,21 +184,26 @@
             "description": "Helper class for content personalization.",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/cp-97--singleton"
+                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/main"
             },
-            "time": "2022-02-04T18:17:36+00:00"
+            "time": "2022-02-24T17:14:59+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-edge-integrations",
-            "version": "0.2.3",
+            "version": "0.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations.git",
+                "reference": "f97ab3bd588793dd0d146b435410d77a56512e8e"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases/download/0.2.3/main.zip",
-                "reference": "58e492088c387f37090651157aa170b8936bfe24",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/f97ab3bd588793dd0d146b435410d77a56512e8e",
+                "reference": "f97ab3bd588793dd0d146b435410d77a56512e8e",
                 "shasum": ""
             },
             "require": {
-                "pantheon-systems/pantheon-edge-integrations": "dev-cp-97--singleton"
+                "pantheon-systems/pantheon-edge-integrations": "dev-main"
             },
             "require-dev": {
                 "consolidation/robo": "^3.0",
@@ -271,17 +226,15 @@
             "description": "WordPress plugin to support Pantheon Edge Integrations and personalization features",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.3"
+                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.7"
             },
-            "time": "2022-02-16T20:34:12+00:00"
+            "time": "2022-02-25T18:37:17+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "openeuropa/composer-artifacts": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
