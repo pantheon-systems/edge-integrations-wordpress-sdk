@@ -8,7 +8,9 @@ Returns geolocation data for the current user.
 
 #### Parameters
 
-`$data_type` _(string)_ The type of geolocation data to return. `get_geo` accepts the following values: `country`, `region`, `city`, `postal-code`, `lat`, `lon`, `latlon` or an empty string. All other values will return an empty string and the default is `''`. Passing `geo` is also allowed as an alias for `country`, but the latter is recommended. If an empty string is passed, `get_geo` will return all Audience data encoded in JSON format.
+`$data_type` _(string)_ The type of geolocation data to return. `get_geo` accepts the following values: `country`, `region`, `city`, `continent`, `conn-speed`, `conn-type`, `lat`, `lon`, `latlon` or an empty string. All other values will return an empty string and the default is `''`. Passing `geo` is also allowed as an alias for `country`, but the latter is recommended. If an empty string is passed, `get_geo` will return all Audience data encoded in JSON format.
+
+**Note:** `lat`, `lon` and `latlon` do not currently return any data.
 
 `$data` _(mixed)_ Data to pass directly into the `EI\HeaderData` class. By default, `EI\HeaderData` will use the `$_SERVER` superglobal to get the data.
 
@@ -133,7 +135,7 @@ function filter_geo_allowed_values( array $values ) : array {
 	// Remove unsupported data types.
 	unset( $values['region'] );
 	unset( $values['city'] );
-	unset( $values['postal-code'] );
+	unset( $values['continent'] );
 	unset( $values['lat'] );
 	unset( $values['lon'] );
 	unset( $values['latlon'] );
