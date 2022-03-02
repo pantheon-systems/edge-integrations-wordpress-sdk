@@ -151,7 +151,7 @@
         },
         {
             "name": "pantheon-systems/pantheon-edge-integrations",
-            "version": "dev-main",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon-edge-integrations.git",
@@ -167,7 +167,6 @@
                 "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -184,26 +183,26 @@
             "description": "Helper class for content personalization.",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/main"
+                "source": "https://github.com/pantheon-systems/pantheon-edge-integrations/tree/1.0.1"
             },
             "time": "2022-02-24T17:14:59+00:00"
         },
         {
             "name": "pantheon-systems/pantheon-wordpress-edge-integrations",
-            "version": "0.2.7",
+            "version": "0.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations.git",
-                "reference": "f97ab3bd588793dd0d146b435410d77a56512e8e"
+                "reference": "5431e9ce472e029ecbf4c8d54782613e848859cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/f97ab3bd588793dd0d146b435410d77a56512e8e",
-                "reference": "f97ab3bd588793dd0d146b435410d77a56512e8e",
+                "url": "https://api.github.com/repos/pantheon-systems/pantheon-wordpress-edge-integrations/zipball/5431e9ce472e029ecbf4c8d54782613e848859cb",
+                "reference": "5431e9ce472e029ecbf4c8d54782613e848859cb",
                 "shasum": ""
             },
             "require": {
-                "pantheon-systems/pantheon-edge-integrations": "dev-main"
+                "pantheon-systems/pantheon-edge-integrations": "^v1.0"
             },
             "require-dev": {
                 "consolidation/robo": "^3.0",
@@ -226,9 +225,9 @@
             "description": "WordPress plugin to support Pantheon Edge Integrations and personalization features",
             "support": {
                 "issues": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/issues",
-                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.7"
+                "source": "https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/tree/0.2.9"
             },
-            "time": "2022-02-25T18:37:17+00:00"
+            "time": "2022-03-02T17:04:11+00:00"
         }
     ],
     "packages-dev": [],
