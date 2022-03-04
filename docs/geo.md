@@ -139,6 +139,8 @@ function filter_geo_allowed_values( array $values ) : array {
 	unset( $values['lat'] );
 	unset( $values['lon'] );
 	unset( $values['latlon'] );
+	unset( $values['conn-speed'] );
+	unset( $values['conn-type'] );
 	return $values;
 }
 ```
