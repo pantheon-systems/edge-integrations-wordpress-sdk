@@ -6,6 +6,17 @@ Welcome to the Pantheon Edge Integrations WordPress SDK!
 
 This repository serves as a one-stop shop for integrating your WordPress site on Pantheon with our Edge Integrations toolset.
 
+## Architecture
+
+The diagram below illustrates the general overview of what this SDK provides and how the pieces fit together.
+
+```mermaid
+flowchart TB
+agcdn[/Pantheon Advanced Global CDN\]-->ei[Pantheon Edge Integrations global library]
+ei-->eiplugin(Pantheon WordPress Edge Integrations plugin)
+ei-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
+```
+
 ## Setup
 
 ### Installing into a project with Integrated Composer.
