@@ -1,3 +1,6 @@
 packages/
 vendor/
 wp-content/
+
+# System files
+.DS_Store
