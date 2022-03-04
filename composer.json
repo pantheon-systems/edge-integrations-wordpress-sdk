@@ -29,5 +29,8 @@
         "pantheon-systems/pantheon-edge-integrations": "*",
         "pantheon-systems/pantheon-wordpress-edge-integrations": "^0.2"
     },
+    "suggest": {
+        "pantheon-systems/pantheon-geolocation-shortcodes": "Easy-to-use shortcodes to quickly personalize content by geographic location."
+    },
     "extra": {}
 }
