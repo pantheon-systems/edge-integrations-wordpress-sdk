@@ -1,6 +1,6 @@
 # Pantheon Edge Integrations WordPress SDK
 
-[![Unsupported](https://img.shields.io/badge/pantheon-unsupported-yellow?logo=pantheon&color=FFDC28)](https://github.com/topics/unsupported?q=org%3Apantheon-systems "Unsupported, e.g. a tool we are actively using internally and are making available, but do not promise to support") ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
+[![Unsupported](https://img.shields.io/badge/pantheon-unsupported-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#unsupported) ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
 
 Welcome to the Pantheon Edge Integrations WordPress SDK!
 
@@ -19,7 +19,7 @@ ei-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
 
 ### Description
 
-The Edge Integrations WordPress SDK is made up of several components that, in addition to the documentation stored in this repository, are all installed automatically when you `composer require` the project in your WordPress project root. 
+The Edge Integrations WordPress SDK is made up of several components that, in addition to the documentation stored in this repository, are all installed automatically when you `composer require` the project in your WordPress project root.
 
 #### Pantheon Advanced Global CDN
 Edge Integrations start with the "edge" itself, the CDN layer that is the last stop before a page is rendered in your browser. Pantheon's [Advanced Global CDN](https://pantheon.io/docs/guides/professional-services/advanced-global-cdn) has enabled Varnish configuration rules on our AGCDN platform to allow for geolocation information and interest tracking data to be sent back and forth with the CDN, enabling CDN caching for content personalized by those parameters. AGCDN is the first step for Pantheon Edge Integrations and allows us to render cached versions of personalized pages.
