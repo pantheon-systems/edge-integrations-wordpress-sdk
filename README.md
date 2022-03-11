@@ -35,9 +35,9 @@ The [Pantheon Geolocation Shortcodes](https://github.com/pantheon-systems/panthe
 
 ## Setup
 
-### Installing into a project with Integrated Composer.
+### Install with Composer
 
-Adding Edge Integrations support to your Integrated Composer project is simple and is the recommended means of adding the Edge Integrations WordPress SDK.
+Adding Edge Integrations support to your Composer-based project is simple and is the recommended means of adding the Edge Integrations WordPress SDK.
 
 #### Requiring the Composer package
 
@@ -51,31 +51,13 @@ That command will add this repository to your `/vendor` directory, as well as al
 
 Alternately, you can add `pantheon-systems/edge-integrations-wordpress-sdk` as a dependency to your project's `composer.json` file and run `composer install`.
 
-### Installing manually
+### Install manually
 
-If you aren't running a project with Integrated Composer but you _do_ use Composer otherwise, you can still get started with the Edge Integrations WordPress SDK without too much trouble. This still assumes you have Composer installed on at least one machine.
+If you do not use Composer on your project at all, you can still get started with the WordPress Edge Integrations plugin without any hassle. In this case, you won't be installing the SDK package, instead, go to the [Pantheon WordPress Edge Integrations Releases page](https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations/releases).
 
-#### Step 1: Clone or `composer require` the WordPress Edge Integrations plugin
+* Download the Source Code (zip) file associated with the most recent version.
+* Extract the plugin in your `wp-content/plugins` directory. You will get all of the compiled assets and included dependencies, including the CMS-agnostic, [global PHP library](https://github.com/pantheon-systems/pantheon-edge-integrations) in the package.
 
-First, you'll need to get a copy of the [WordPress Edge Integrations plugin](https://github.com/pantheon-systems/pantheon-wordpress-edge-integrations). Clone or download the plugin into your `wp-content/plugins` directory.
+### Activate the plugin
 
-```bash
-git clone git@github.com:pantheon-systems/pantheon-wordpress-edge-integrations.git
-```
-
-Alternately, you can use Composer to download the package.
-
-```bash
-composer require pantheon-systems/pantheon-wordpress-edge-integrations
-```
-
-#### Step 2: Install Pantheon Edge Integrations library
-
-Once you have the plugin downloaded, you'll need to run `composer install` to get the Pantheon Edge Integrations library. `cd` into the plugin's directory and run `composer install`. From the `wp-content/plugins` directory, run the following commands:
-
-```bash
-cd pantheon-wordpress-edge-integrations
-composer install
-```
-
-This will install `pantheon-edge-integrations` into the plugin's `vendor` directory. The plugin itself will handle loading the library if it's installed.
+In either case, the last step is activating the plugin from your WordPress dashboard Plugins page. There is no other admin interface for the WordPress plugin -- all the features and components are handled in the code itself, with hooks that developers can use to interact with the geolocation and interest tracking features.
