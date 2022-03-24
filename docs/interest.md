@@ -8,7 +8,7 @@ Return or alter interest data in the global header.
 
 #### Parameters
 
-_(array)_ Data to pass to the HeaderData class. If an empty arrat is passed, `get_interest` will return all Interest data.
+_(array)_ Data to pass to the HeaderData class. If an empty array is passed, `get_interest` will return all Interest data.
 
 #### Return
 
@@ -25,6 +25,10 @@ $interest = Interest\get_interest();
 // Manually pass data to interest header.
 $data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
 $interest = Interest\get_interest( $data );
+
+// Pass interest to header from query string, ei_interest
+$interest_from_query_string = isset( $_GET['ei_interest'] ) ? $_GET['ei_interest' : '';
+Interest\get_interest( [ 'HTTP_INTEREST' => $interest_query_string ] );
 ```
 
 ### `set_interest`
