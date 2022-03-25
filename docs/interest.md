@@ -27,7 +27,7 @@ $data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
 $interest = Interest\get_interest( $data );
 
 // Pass interest to header from query string, ei_interest
-$interest_from_query_string = isset( $_GET['ei_interest'] ) ? $_GET['ei_interest' : '';
+$interest_from_query_string = isset( $_GET['ei_interest'] ) ? sanitize_text_field( $_GET['ei_interest'] ) : '';
 Interest\get_interest( [ 'HTTP_INTEREST' => $interest_query_string ] );
 ```
 
