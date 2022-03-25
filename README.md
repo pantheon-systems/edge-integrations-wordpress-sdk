@@ -14,7 +14,8 @@ The diagram below illustrates the general overview of what this SDK provides and
 flowchart TB
 agcdn[/Pantheon Advanced Global CDN\]-->ei[Pantheon Edge Integrations global library]
 ei-->eiplugin(Pantheon WordPress Edge Integrations plugin)
-ei-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
+eiplugin-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
+eiplugin-. Optional -.->consent(Pantheon Edge Integrations Consent Management plugin)
 ```
 
 ### Description
@@ -32,6 +33,9 @@ The [WordPress Edge Integrations](https://github.com/pantheon-systems/pantheon-w
 
 #### Pantheon Geolocation Shortcodes plugin
 The [Pantheon Geolocation Shortcodes](https://github.com/pantheon-systems/pantheon-geolocation-shortcodes) plugin is an optional addition that can be included if all you want to do is display specific content in posts and pages to some geographic regions, but not other geographic regions. Parameters exist to display content by continent, country, region and city as well as allowing for conditions like `not_continent` and `not_city`.
+
+#### Pantheon Edge Integrations Consent Management plugin
+The [Pantheon Edge Integrations Consent Management](https://github.com/pantheon-systems/pantheon-edge-integrations-consent-management) plugin is another optional addition that can be included to enable a cookie consent banner that integrates natively with Pantheon Edge Integrations. It can be used as a consent management solution as-is, as a framework for developing your own bespoke consent management solution with Edge Integrations, or as a reference when integrating with a third-party consent management plugin. 
 
 ## Setup
 
