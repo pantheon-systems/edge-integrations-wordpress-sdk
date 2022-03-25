@@ -14,8 +14,8 @@ The diagram below illustrates the general overview of what this SDK provides and
 flowchart TB
 agcdn[/Pantheon Advanced Global CDN\]-->ei[Pantheon Edge Integrations global library]
 ei-->eiplugin(Pantheon WordPress Edge Integrations plugin)
-ei-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
-ei-. Optional -.->consent(Pantheon Edge Integrations Consent Management plugin)
+eiplugin-. Optional -.->geoipplugin(Pantheon Geolocation Shortcodes plugin)
+eiplugin-. Optional -.->consent(Pantheon Edge Integrations Consent Management plugin)
 ```
 
 ### Description
