@@ -46,7 +46,11 @@ Interests can be tested or verified in two different ways.
 
 - Use the `get_interest` function. You can return the Interest(s) from the `HeaderData` class, which can be used with the `WP_Query` class to fetch personalized content for a given visitor.
 
-### Code Samples
+### More Resources
+
+- [API](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/master/docs/api.md)
+
+- [Analytics](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/analytics.md)
 
 - [Geolocation](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/geo.md)
 
