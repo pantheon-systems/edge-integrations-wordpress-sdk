@@ -21,41 +21,28 @@ use Pantheon\EI\WP\Interest;
 
 // Returns interest data from HeaderData class.
 $interest = Interest\get_interest();
-
-// Manually pass data to interest header.
-$data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
-$interest = Interest\get_interest( $data );
-
-// Pass interest to header from query string, ei_interest
-$interest_from_query_string = isset( $_GET['ei_interest'] ) ? sanitize_text_field( $_GET['ei_interest'] ) : '';
-Interest\get_interest( [ 'HTTP_INTEREST' => $interest_query_string ] );
 ```
 
 ### `set_interest`
 
-Set the interest header key and data.
+Set the interest data in global header.
 
 #### Parameters
 
-`$key` _(array)_ Key for the header, or array of keys.
-
-`$data` _(array)_ Data to pass to the HeaderData class.
+`$data` _(array)_ Interest data to pass to the HeaderData class.
 
 #### Example
 
 ```php
 use Pantheon\EI\WP\Interest;
 
-$key = [ 'Comes' ];
+// Manually pass data to interest header.
+$data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
+$interest = Interest\set_interest( $data );
 
-$data = [
-    'HTTP_IGNORED' => 'HTTP Ignored Entry',
-    'IGNORED_ENTRY' => 'Completely ignored entry',
-    'HTTP_SHOULD_BE_FOUND' => 'Should be found',
-    'HTTP_VARY' => 'Something, Wicked, This, Way',
-];
-
-Interest\set_interest( $key, $data )
+// Pass interest to header from query string, ei_interest
+$interest_from_query_string = isset( $_GET['ei_interest'] ) ? sanitize_text_field( $_GET['ei_interest'] ) : '';
+Interest\set_interest( [ 'HTTP_INTEREST' => $interest_query_string ] );
 ```
 
 ## Filter reference
@@ -201,9 +188,9 @@ function pantheon_ei_parsed_interest_data( array $data ) : array {
 }
 ```
 
-### `pantheon.ei.set_interest_data`
+### `pantheon.ei.applied_interest_data`
 
-Modify HeaderData being set as a vary header from set_interest.
+Modify HeaderData being set by set_interest.
 
 #### Parameters
 
