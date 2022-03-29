@@ -49,9 +49,9 @@ function after_enqueue_script( array $args ) {
 }
 ```
 
-### `add_header_data`
+### `update_vary_headers`
 
-Add header key and custom data.
+Adds header key and custom data to vary header
 
 #### Parameters
 
