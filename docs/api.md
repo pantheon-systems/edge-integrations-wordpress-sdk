@@ -144,9 +144,9 @@ function do_not_send_vary_headers() : array {
 }
 ```
 
-### `pantheon.ei.customize_header_data`
+### `pantheon.ei.custom_header_data`
 
-Modify HeaderData being set as a vary header from add_header_data.
+Modify HeaderData being set as a vary header from update_vary_headers.
 
 #### Parameters
 
@@ -155,8 +155,8 @@ _(array)_ HeaderData data as an array.
 #### Example
 
 ```php
-add_filter( 'pantheon.ei.customize_header_data', 'pantheon_ei_customize_interest_data' );
-function pantheon_ei_customize_interest_data( array $data ) : array {
+add_filter( 'pantheon.ei.custom_header_data', 'pantheon_ei_customize_header_data' );
+function pantheon_ei_customize_header_data( array $data ) : array {
 	// Remove last element from $data.
 	return array_pop( $data );
 }
