@@ -51,7 +51,7 @@ function after_enqueue_script( array $args ) {
 
 ### `update_vary_headers`
 
-Adds header key and custom data to vary header
+Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
 
 #### Parameters
 
@@ -146,11 +146,11 @@ function do_not_send_vary_headers() : array {
 
 ### `pantheon.ei.custom_header_data`
 
-Modify HeaderData being set as a vary header from update_vary_headers.
+This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before the it's returned.
 
 #### Parameters
 
-_(array)_ HeaderData data as an array.
+_(array)_ `HeaderData` data as an array.
 
 #### Example
 

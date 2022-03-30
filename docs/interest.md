@@ -37,7 +37,7 @@ Set the interest data in global header.
 use Pantheon\EI\WP\Interest;
 
 // Manually pass data to interest header.
-$data = ['HTTP_INTEREST' =>'Carl Sagan|Richard Feynman'];
+$data = ['HTTP_INTEREST' =>'Interest One|Interest Two'];
 $interest = Interest\set_interest( $data );
 
 // Pass interest to header from query string, ei_interest
