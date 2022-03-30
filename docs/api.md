@@ -49,6 +49,33 @@ function after_enqueue_script( array $args ) {
 }
 ```
 
+### `update_vary_headers`
+
+Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
+
+#### Parameters
+
+`$key` _(array)_ Key for the header, or array of keys.
+
+`$data` _(array)_ Data to pass to the HeaderData class.
+
+#### Example
+
+```php
+use Pantheon\EI\WP;
+
+$key = [ 'Comes' ];
+
+$data = [
+    'HTTP_IGNORED' => 'HTTP Ignored Entry',
+    'IGNORED_ENTRY' => 'Completely ignored entry',
+    'HTTP_SHOULD_BE_FOUND' => 'Should be found',
+    'HTTP_VARY' => 'Something, Wicked, This, Way',
+];
+
+WP\add_header_data( $key, $data )
+```
+
 ## Filter reference
 
 ### `pantheon.ei.supported_vary_headers`
@@ -114,5 +141,23 @@ function do_not_send_vary_headers() : array {
 		'Audience' => false,
 		'Interest' => false,
 	];
+}
+```
+
+### `pantheon.ei.custom_header_data`
+
+This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before the it's returned.
+
+#### Parameters
+
+_(array)_ `HeaderData` data as an array.
+
+#### Example
+
+```php
+add_filter( 'pantheon.ei.custom_header_data', 'pantheon_ei_customize_header_data' );
+function pantheon_ei_customize_header_data( array $data ) : array {
+	// Remove last element from $data.
+	return array_pop( $data );
 }
 ```
