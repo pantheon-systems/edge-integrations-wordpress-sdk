@@ -30,7 +30,8 @@
         "pantheon-systems/pantheon-wordpress-edge-integrations": "^0.2"
     },
     "suggest": {
-        "pantheon-systems/pantheon-geolocation-shortcodes": "Easy-to-use shortcodes to quickly personalize content by geographic location."
+        "pantheon-systems/pantheon-geolocation-shortcodes": "Easy-to-use shortcodes to quickly personalize content by geographic location.",
+        "pantheon-systems/pantheon-edge-integrations-consent-management": "Out of the box cookie consent management integrated with Edge Integrations."
     },
     "extra": {}
 }
