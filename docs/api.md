@@ -51,6 +51,26 @@ $data = [
 WP\update_vary_headers( $key, $data )
 ```
 
+### `edge_integrations_enabled`
+Checks if Edge Integrations have been configured at the CDN layer.
+
+Validates header data received from the CDN for any supported vary headers, including those that have been added by `update_vary_headers`.
+
+#### Return
+
+__(bool)__ Whether Edge Integrations have been configured and the CDN is returning data.
+
+#### Example
+```php
+use Pantheon\EI\WP;
+
+if ( WP\edge_integrations_enabled() ) {
+	// Do something with personalization data.
+} else {
+	// Do something else with generic information.
+}
+```
+
 ## Action reference
 
 ### `pantheon.ei.after_enqueue_script`
