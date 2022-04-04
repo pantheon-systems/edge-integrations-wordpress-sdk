@@ -24,31 +24,6 @@ Gets an array of the vary headers supported by the plugin. Before returning the 
 
 __(array)__ An array of the vary headers supported by the plugin.
 
-## Action reference
-
-### `pantheon.ei.after_enqueue_script`
-
-Fires immediately after the `pantheon-ei` script is enqueued.
-
-#### Parameters
-
-`$args` _(array)_ An arguments array containing `plugin_version` (the `PANTHEON_EDGE_INTEGRATIONS_VERSION` value) and `plugin_file` (the `PANTHEON_EDGE_INTEGRATIONS_FILE` value).
-
-#### Example
-
-```php
-add_action( 'pantheon.ei.after_enqueue_script', 'after_enqueue_script' );
-function after_enqueue_script( array $args ) {
-	$plugin_version = $args['plugin_version'];
-	$plugin_file    = $args['plugin_file'];
-
-	wp_localize_script( 'pantheon-ei', 'myLocalizedObj', [
-		'plugin_version' => $plugin_version,
-		'plugin_file'    => $plugin_file,
-	] );
-}
-```
-
 ### `update_vary_headers`
 
 Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
@@ -73,7 +48,32 @@ $data = [
     'HTTP_VARY' => 'Something, Wicked, This, Way',
 ];
 
-WP\add_header_data( $key, $data )
+WP\update_vary_headers( $key, $data )
+```
+
+## Action reference
+
+### `pantheon.ei.after_enqueue_script`
+
+Fires immediately after the `pantheon-ei` script is enqueued.
+
+#### Parameters
+
+`$args` _(array)_ An arguments array containing `plugin_version` (the `PANTHEON_EDGE_INTEGRATIONS_VERSION` value) and `plugin_file` (the `PANTHEON_EDGE_INTEGRATIONS_FILE` value).
+
+#### Example
+
+```php
+add_action( 'pantheon.ei.after_enqueue_script', 'after_enqueue_script' );
+function after_enqueue_script( array $args ) {
+	$plugin_version = $args['plugin_version'];
+	$plugin_file    = $args['plugin_file'];
+
+	wp_localize_script( 'pantheon-ei', 'myLocalizedObj', [
+		'plugin_version' => $plugin_version,
+		'plugin_file'    => $plugin_file,
+	] );
+}
 ```
 
 ## Filter reference
