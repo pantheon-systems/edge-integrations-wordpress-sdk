@@ -62,6 +62,7 @@ Validates header data received from the CDN for any supported vary headers, incl
 __(bool)__ Whether Edge Integrations have been configured and the CDN is returning data.
 
 #### Example
+
 ```php
 use Pantheon\EI\WP;
 
