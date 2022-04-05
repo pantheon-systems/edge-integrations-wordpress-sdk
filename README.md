@@ -1,6 +1,6 @@
 # Pantheon Edge Integrations WordPress SDK
 
-[![Unsupported](https://img.shields.io/badge/pantheon-unsupported-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#unsupported) ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
+[![Unsupported](https://img.shields.io/badge/pantheon-unsupported-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#unsupported) ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![Commits since latest release](https://img.shields.io/github/commits-since/pantheon-systems/edge-integrations-wordpress-sdk/latest) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
 
 Welcome to the Pantheon Edge Integrations WordPress SDK!
 
