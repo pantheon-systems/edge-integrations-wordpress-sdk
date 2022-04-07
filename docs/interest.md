@@ -1,8 +1,22 @@
 # WordPress Edge Integrations: Interest
 
+## Namespace: `Pantheon\EI\WP\Interest`
+
+The namespace for the analytics functionality is `Pantheon\EI\WP\Interest`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+
+```php
+use Pantheon\EI\WP\Interest;
+```
+
+Doing this allows you to use the functions without the full namespace prefix. 
+
+**More information**
+* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
+* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+
 ## Function reference
 
-### `get_interest`
+### `Interest\get_interest`
 
 Return or alter interest data in the global header.
 
@@ -23,7 +37,7 @@ use Pantheon\EI\WP\Interest;
 $interest = Interest\get_interest();
 ```
 
-### `set_interest`
+### `Interest\set_interest`
 
 Set the interest data in global header.
 
