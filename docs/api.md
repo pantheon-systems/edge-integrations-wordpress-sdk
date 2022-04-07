@@ -1,5 +1,19 @@
 # WordPress Edge Integrations: API
 
+## Namespace: `Pantheon\EI\WP`
+
+The namespace for the analytics functionality is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+
+```php
+use Pantheon\EI\WP;
+```
+
+Doing this allows you to use the functions without the full namespace prefix. 
+
+**More information**
+* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
+* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+
 ## Constant reference
 
 ### `PANTHEON_EDGE_INTEGRATIONS_DIR`
@@ -16,7 +30,7 @@ The current version of the Pantheon Edge Integrations plugin.
 
 ## Function reference
 
-### `get_supported_vary_headers`
+### `WP\get_supported_vary_headers`
 
 Gets an array of the vary headers supported by the plugin. Before returning the array of vary headers, the [`pantheon.ei.supported_vary_headers`](#pantheoneisupportedvaryheaders) filter is applied. Only the headers (the _keys_ of `pantheon.ei.supported_vary_headers`) are returned.
 
@@ -51,7 +65,7 @@ $data = [
 WP\update_vary_headers( $key, $data )
 ```
 
-### `edge_integrations_enabled`
+### `WP\edge_integrations_enabled`
 
 Checks if Edge Integrations have been configured at the CDN layer.
 
