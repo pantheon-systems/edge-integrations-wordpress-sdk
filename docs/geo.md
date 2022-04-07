@@ -1,8 +1,22 @@
 # WordPress Edge Integrations: Geo
 
+## Namespace: `Pantheon\EI\WP\Geo`
+
+The namespace for the analytics functionality is `Pantheon\EI\WP\Geo`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+
+```php
+use Pantheon\EI\WP\Geo;
+```
+
+Doing this allows you to use the functions without the full namespace prefix. 
+
+**More information**
+* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
+* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+
 ## Function reference
 
-### `get_geo()`
+### `Geo\get_geo()`
 
 Returns geolocation data for the current user.
 
@@ -21,7 +35,9 @@ _(string)_ The specific requested geolocation data or all geolocation data in a 
 #### Example
 
 ```php
-$geo = get_geo( 'country' ); // Returns the country ISO code for the current user, e.g. 'US'.
+use Pantheon\EI\WP\Geo;
+...
+$geo = Geo\get_geo( 'country' ); // Returns the country ISO code for the current user, e.g. 'US'.
 
 switch ( $geo ) {
 	case 'US':
@@ -39,7 +55,7 @@ switch ( $geo ) {
 }
 ```
 
-### `get_geo_allowed_values()`
+### `Geo\get_geo_allowed_values()`
 
 Returns the array of allowed geolocation data types.
 
@@ -48,8 +64,10 @@ __See [`pantheon.ei.geo_allowed_values`](#pantheon.ei.geo_allowed_values).__
 #### Example
 
 ```php
+use Pantheon\EI\WP\Geo;
+...
 // If the passed data type is not allowed, return an empty string.
-if ( ! in_array( $data_type, get_geo_allowed_values(), true ) ) {
+if ( ! in_array( $data_type, Geo\get_geo_allowed_values(), true ) ) {
 	return '';
 }
 ```
