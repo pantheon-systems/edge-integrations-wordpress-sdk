@@ -1,8 +1,22 @@
 # WordPress Edge Integrations: Analytics
 
+## Namespace: `Pantheon\EI\WP\Analytics`
+
+The namespace for the analytics functionality is `Pantheon\EI\WP\Analytics`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+
+```php
+use Pantheon\EI\WP\Analytics;
+```
+
+Doing this allows you to use the functions without the full namespace prefix. 
+
+**More information**
+* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
+* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+
 ## Function reference
 
-### `get_gtm_code()`
+### `Analytics\get_gtm_code()`
 
 Returns the Google Tag Manager (GTM) code for the current site, if one is set.
 
@@ -13,7 +27,9 @@ __(bool|string)__ The GTM code for the current site, if one is set. Otherwise, r
 #### Example
 
 ```php
-$gtm_code = get_gtm_code();
+use Pantheon\EI\WP\Analytics;
+...
+$gtm_code = Analytics\get_gtm_code();
 
 // Bail early if we don't have a GTM code or if the GTM code is being overridden externally.
 if ( is_bool( $gtm_code ) ) {
