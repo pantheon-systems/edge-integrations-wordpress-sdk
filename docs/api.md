@@ -197,3 +197,26 @@ function pantheon_ei_customize_header_data( array $data ) : array {
 	return array_pop( $data );
 }
 ```
+
+### `pantheon.ei.enabled`
+
+Allows developers to filter the output of the `WP\edge_integrations_enabled()` function.
+
+This can be used to force the application to think that the headers have been detected when they haven't.
+
+**Note:** This does not change whether the headers exist, output may be unexpected if this value is "true" but the headers are not present.
+
+#### Parameters
+
+__(bool)__ `$headers_enabled` Whether Edge Integrations have been configured and the CDN is returning data.
+
+#### Example
+
+```php
+// Force Edge Integrations to appear enabled. This will disable the notice that appears when the headers are not detected.
+add_filter( 'pantheon.ei.enabled', '__return_true' );
+
+// Force Edge Integrations to appear disabled. This display the notice that appears when the headers are not detected. It will not change whether Edge Integrations functions will work.
+add_filter( 'pantheon.ei.enabled', '__return_false' );
+```
+```
