@@ -127,11 +127,18 @@ This filter must be used with one of the available geolocation data types (e.g. 
 _(string)_ The requested geolocation data.
 
 ```php
-add_filter( 'pantheon.ei.get_geo', 'override_get_geo' );
+add_filter( 'pantheon.ei.get_geo_continent-code', 'override_get_geo_non_eu' );
 
-function override_get_geo( string $value ) : string {
+/**
+ * Default to US if the country code is not in the EU.
+ * 
+ * @param string $value The continent code to filter
+ * 
+ * @return string The continent code or the filtered continent code (US) if a non-EU country is detected.
+ */
+function override_get_geo_non_eu( string $value ) : string {
 	// European Union countries.
-	$eu = [ 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE' ];
+	$eu = [ 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE' ];
 
 	// Default to US if not in the EU.
 	if ( ! in_array( $value, $eu ) ) {
