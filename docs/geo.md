@@ -35,7 +35,7 @@ _(string)_ The specific requested geolocation data or all geolocation data in a 
 ```php
 use Pantheon\EI\WP\Geo;
 ...
-$geo = Geo\get_geo( 'country' ); // Returns the country ISO code for the current user, e.g. 'US'.
+$geo = Geo\get_geo( 'country-code' ); // Returns the country ISO code for the current user, e.g. 'US'.
 
 switch ( $geo ) {
 	case 'US':
