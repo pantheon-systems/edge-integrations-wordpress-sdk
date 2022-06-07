@@ -16,6 +16,28 @@ Doing this allows you to use the functions without the full namespace prefix.
 
 ## Function reference
 
+### `Interest\get_interest_header_key`
+
+Return the interest header key.
+
+#### Return 
+
+_(string)_ The (possibly filtered) interest header key.
+
+#### Example
+
+```php
+use Pantheon\EI\WP\Interest;
+
+/*
+ * Check if the interest header key is one that we expect. 
+ * This is defined in the application (not necessarily what's returned by the CDN).
+ */
+if ( Interest\get_interest_header_key() !== 'P13n-Interest' ) {
+	return;
+}
+```
+
 ### `Interest\get_interest`
 
 Return or alter interest data in the global header.
@@ -60,6 +82,25 @@ Interest\set_interest( [ 'HTTP_INTEREST' => $interest_query_string ] );
 ```
 
 ## Filter reference
+
+### `pantheon.ei.interest_header_key`
+
+Use this filter to change the interest header key to use. This filter is used anywhere that `get_interest_header_key()` is used to return the interest header key (`P13n-Interest` by default).
+
+Note that if you update the interest header key here, you must ensure that the proper header is being returned from the CDN, otherwise the interest tracking functionality will not work.
+
+#### Parameters
+
+_(string)_ The interest header key.
+
+#### Example
+
+```php
+add_filter( 'pantheon.ei.interest_header_key', 'pantheon_modify_header_key' );
+function modify_header_key() : string {
+	return 'Interest';
+}
+```
 
 ### `pantheon.ei.localized_terms`
 
