@@ -93,25 +93,25 @@ if ( ! in_array( 'p13n-geo-country-code', $headers, true ) ) {
 
 ## Filter reference
 
-### `pantheon.ei.parsed_geo_data`
+### `pantheon.ei.get_all_geo`
 
-Takes the geolocation data from `EI\HeaderData` and allows it to be filtered.
+Builds the array of all geolocation data using `EI\HeaderData::personalizationObject()` for all allowed headers (based on `get_geo_allowed_headers()`) and allows it to be filtered. Runs before JSON-encoding when `get_geo()` is called without any parameters passed.
 
 For filtering purposes, the data passed is an array of key/value pairs of geolocation data. Because this filter fires after the data types are checked, it is _possible_ (but not recommended) to provide data that might otherwise be filtered out.
 
 #### Parameters
 
-_(array)_ The full, parsed Audience geolocation data as an array.
+_(array)_ All the available geolocation data as an array.
 
 #### Example
 
 ```php
-add_filter( 'pantheon.ei.parsed_geo_data', 'filter_parsed_geo_data' );
+add_filter( 'pantheon.ei.get_all_geo', 'filter_geo_data' );
 
-function filter_parsed_geo_data( array $data ) : array {
+function filter_geo_data( array $data ) : array {
 	$data['city'] = 'Salt Lake City';
-	$data['region'] = 'Utah';
-	$data['country'] = 'US';
+	$data['region'] = 'UT';
+	$data['country-code'] = 'US';
 	return $data;
 }
 ```
