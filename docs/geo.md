@@ -181,10 +181,7 @@ function filter_geo_allowed_values( array $values ) : array {
 	// Remove unsupported data types.
 	unset( $values['region'] );
 	unset( $values['city'] );
-	unset( $values['continent'] );
-	unset( $values['lat'] );
-	unset( $values['lon'] );
-	unset( $values['latlon'] );
+	unset( $values['continent-code'] );
 	unset( $values['conn-speed'] );
 	unset( $values['conn-type'] );
 	return $values;
