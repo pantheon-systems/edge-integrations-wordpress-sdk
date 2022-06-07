@@ -188,29 +188,45 @@ function filter_geo_allowed_values( array $values ) : array {
 }
 ```
 
-## Action reference
+### `pantheon.ei.geo_allowed_headers`
 
-### `pantheon.ei.before_get_geo`
+Allows the list of geolocation headers to check for to be filtered.
 
-Fires after the geolocation data is retrieved but before it is returned.
-
-Allows developers to hook into the geolocation data retrieval process and access the geolocation value, the type of data being requested and the full, passed data, if it exists.
+Note: This does not affect the actual data types that are returned in the HTTP response. However, if the data _is_ available, or you want to disallow (not use) certain types of data, the `get_geo_allowed_headers` return values can be filtered.
 
 #### Parameters
 
-`$value` _(string)_ The geolocation value.
-
-`$data_type` _(string)_ The requested geolocation data type.
-
-`$data` _(mixed)_ Data passed to the `EI\HeaderData` class. By default, this is pulled from the `$_SERVER` superglobal.
+_(array)_ The list of allowed headers.
 
 #### Example
-```php
-add_action( 'pantheon.ei.before_get_geo', 'before_get_geo' );
 
-function before_get_geo( string $value, string $data_type, $data ) {
-	if ( 'country' === $data_type && 'US' === $value ) {
-		// Do something specific to US.
-	}
+```php
+use Pantheon\EI\WP\Geo;
+
+add_filter( 'pantheon.ei.geo_allowed_headers', 'filter_geo_allowed_headers' );
+function filter_geo_allowed_headers( array $headers ) : array {
+	$headers[] = 'postal-code';
+	return $headers;
+}
+
+/*
+ * Get the postal code for the current user assuming the data exists in the HTTP 
+ * response.
+ * 
+ * Note: This assumes that the allowed values filter was bypassed or that this 
+ * header key was explicitly allowed.
+ */
+Geo\get_geo( 'postal-code' );
+```
+
+If fewer header keys are expressly required, the filter allows the default headers to be removed.
+
+```php
+add_filter( 'pantheon.ei.geo_allowed_headers', 'filter_geo_allowed_headers' );
+function filter_geo_allowed_headers( array $headers ) : array {
+	// Remove unsupported headers.
+	unset $headers['conn-speed'];
+	unset $headers['conn-type'];
+	return $headers;
 }
 ```
