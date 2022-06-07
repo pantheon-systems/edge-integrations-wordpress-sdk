@@ -38,7 +38,7 @@ Gets an array of the vary headers supported by the plugin. Before returning the 
 
 __(array)__ An array of the vary headers supported by the plugin.
 
-### `update_vary_headers`
+### `WP\update_vary_headers`
 
 Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
 
@@ -126,20 +126,26 @@ __(array)__ An array of vary headers and whether or not they are supported. The 
 
 ```php
 $vary_headers = [
-	'Audience-Set' => true,
-	'Audience' => false,
-	'Interest' => true,
+	'P13n-Geo-Country-Code' => true,
+	'P13n-Geo-Country-Name' => false,
+	'P13n-Geo-Region' => false,
+	'P13n-Geo-City' => false,
+	'P13n-Geo-Continent-Code' => false,
+	'P13n-Geo-Conn-Type' => false,
+	'P13n-Geo-Conn-Speed' => false,
+	'P13n-Interest' => true,
 ];
 ```
 
 #### Example
-To set rich Geolocation data as the only supported personalization type:
+To set the country _name_ as the only supported personalization type:
 
 ```php
 add_filter( 'pantheon.ei.supported_vary_headers', 'filter_vary_headers' );
 function filter_vary_headers( array $vary_headers ) {
-	$vary_headers['Audience'] = false;
-	$vary_headers['Interest'] = false;
+	$vary_headers['P13n-Geo-Country-Code'] = false;
+	$vary_headers['P13n-Geo-Country-name'] = true;
+	$vary_headers['P13n-Interest'] = false;
 
 	return $vary_headers;
 }
@@ -150,9 +156,7 @@ To use the country-based Geolocation data as the only supported personalization 
 ```php
 add_filter( 'pantheon.ei.supported_vary_headers', 'filter_vary_headers' );
 function filter_vary_headers( array $vary_headers ) {
-	$vary_headers['Audience-Set'] = false;
-	$vary_headers['Interest'] = false;
-	$vary_headers['Audience'] = true;
+	$vary_headers['P13n-Interest'] = false;
 
 	return $vary_headers;
 }
@@ -173,9 +177,8 @@ function check_consent() {
 
 function do_not_send_vary_headers() : array {
 	return [
-		'Audience-Set' => false,
-		'Audience' => false,
-		'Interest' => false,
+		'P13n-Geo-Country-Code' => false,
+		'P13n-Interest' => false,
 	];
 }
 ```
@@ -218,5 +221,4 @@ add_filter( 'pantheon.ei.enabled', '__return_true' );
 
 // Force Edge Integrations to appear disabled. This display the notice that appears when the headers are not detected. It will not change whether Edge Integrations functions will work.
 add_filter( 'pantheon.ei.enabled', '__return_false' );
-```
 ```
