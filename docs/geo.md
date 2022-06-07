@@ -70,6 +70,27 @@ if ( ! in_array( $data_type, Geo\get_geo_allowed_values(), true ) ) {
 }
 ```
 
+### `Geo\get_geo_allowed_headers`
+
+Returns an array of allowed headers.
+
+This is distinctly different from `get_geo_allowed_values` in that these are the _actual_ headers that the plugin looks for in the HTTP response, not just the data type used to return that data. `get_geo_allowed_headers` uses `get_geo_allowed_values` to build the list of allowed headers, so if some values are being passed into `pantheon.ei.geo_allowed_values` that do not align with actual _headers_ being returned, the `pantheon.ei.geo_allowed_headers` filter must be used to ensure your code does not produce errors.
+
+_See [`pantheon.ei.geo_allowed_headers`](#pantheoneigeoallowedheaders)._
+
+#### Example
+
+```php
+use Pantheon\EI\WP\Geo;
+
+$headers = Geo\get_geo_allowed_headers();
+
+// Country code not found in HTTP response.
+if ( ! in_array( 'p13n-geo-country-code', $headers, true ) ) {
+	return;
+}
+```
+
 ## Filter reference
 
 ### `pantheon.ei.parsed_geo_data`
