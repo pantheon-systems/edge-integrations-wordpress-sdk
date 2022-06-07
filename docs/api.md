@@ -38,7 +38,7 @@ Gets an array of the vary headers supported by the plugin. Before returning the 
 
 __(array)__ An array of the vary headers supported by the plugin.
 
-### `update_vary_headers`
+### `WP\update_vary_headers`
 
 Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
 
