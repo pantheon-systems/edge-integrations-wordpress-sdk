@@ -116,9 +116,11 @@ function filter_geo_data( array $data ) : array {
 }
 ```
 
-### `pantheon.ei.get_geo`
+### `pantheon.ei.get_geo_{$data_type}`
 
-Allows the geolocation data to be filtered. This filter fires after the data is parsed and immediately before it is returned. This is the last stop before the data is output.
+Allows individual geolocation data to be filtered. This filter fires after the data is parsed and immediately before it is returned. This is the last stop before the data is output.
+
+This filter must be used with one of the available geolocation data types (e.g. `country-code` or `region`) passed as the data type.
 
 #### Parameters
 
