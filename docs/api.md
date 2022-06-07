@@ -222,4 +222,3 @@ add_filter( 'pantheon.ei.enabled', '__return_true' );
 // Force Edge Integrations to appear disabled. This display the notice that appears when the headers are not detected. It will not change whether Edge Integrations functions will work.
 add_filter( 'pantheon.ei.enabled', '__return_false' );
 ```
-```
