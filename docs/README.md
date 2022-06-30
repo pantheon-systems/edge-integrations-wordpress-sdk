@@ -48,9 +48,11 @@ Interests can be tested or verified in two different ways.
 
 ### More Resources
 
-- [API](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/master/docs/api.md)
+- [Main](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/master/docs/main.md)
 
 - [Analytics](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/analytics.md)
+
+- [API](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/api.md)
 
 - [Geolocation](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/geo.md)
 
