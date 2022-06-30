@@ -1,8 +1,8 @@
-# WordPress Edge Integrations: API
+# WordPress Edge Integrations: Main
 
 ## Namespace: `Pantheon\EI\WP`
 
-The namespace for the analytics functionality is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+The base namespace for the WordPress Edge Integrations plugin is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
 
 ```php
 use Pantheon\EI\WP;
