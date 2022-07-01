@@ -212,3 +212,38 @@ The current user interest.
 **Return Type:** _string_
 
 [Reference](https://pantheon.stoplight.io/docs/edge-integrations/d50bfdfaea613-ei-user-interest)
+
+## Function Reference
+
+**Note:** The design of the API endpoints is to expose and reflect back data that can be retrieved using various PHP functions in the plugin and the endpoint callback functions use those to return data. It is advisable to use the originating functions themselves rather than the API functions unless you are explicitly interacting with the WordPress Edge Integrations API.
+
+### `API\get_all_user_data`
+
+Return the current user's personalization data.
+
+#### Parameters
+
+`$request` _(WP\_REST\_Request)_ The REST API request.
+
+#### Return
+
+The current user's personalization data. If a `WP_REST_Request` was passed, the personalization data is passed with the passed arguments from the request.
+
+#### Example
+
+```
+use Pantheon\EI\WP\API;
+use WP_REST_Request;
+
+$request = new WP_REST_Request( 'GET', '/pantheon/v1/ei/user' );
+$request->set_query_params( [
+	'interest' => 'foo',
+	'country-code' => 'US',
+] );
+
+$response = rest_do_request( $request );
+$country_code = 'country-code'; // Storing the parameter into a variable allows requests to be made with that parameter via PHP.
+
+$country = get_all_user_data( $request )->geo-$country_code; // Returns "US".
+$interest = get_all_user_data( $request )->interest; // Returns "foo".
+```
