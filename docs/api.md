@@ -156,7 +156,7 @@ _(array)_
 
 #### Reference
 
-[`pantheon/v1/ei/segments/connection`](https://pantheon.stoplight.io/docs/edge-integrations/f8f8f8f8f8f8f-ei-segments-connection)
+[`pantheon/v1/ei/segments/connection`](https://pantheon.stoplight.io/docs/edge-integrations/be2e42421ddde-ei-segments-connection)
 
 ### `pantheon/v1/ei/segments/geo`
 
@@ -297,7 +297,7 @@ _(string)_
 
 #### Reference
 
-[`pantheon/v1/ei/user/geo/country-code`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
+[`pantheon/v1/ei/user/geo/country-code`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country-code)
 
 ### `pantheon/v1/ei/user/geo/country-name`
 
@@ -312,7 +312,7 @@ _(string)_
 
 #### Reference
 
-[`pantheon/v1/ei/user/geo/country-name`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
+[`pantheon/v1/ei/user/geo/country-name`](https://pantheon.stoplight.io/docs/edge-integrations/69ec8d44d9c66-ei-user-geo-country-name)
 
 ### `pantheon/v1/ei/user/geo/region`
 
@@ -327,7 +327,7 @@ _(string)_
 
 #### Reference
 
-[`pantheon/v1/ei/user/geo/region`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-region)
+[`pantheon/v1/ei/user/geo/region`](https://pantheon.stoplight.io/docs/edge-integrations/477a8bed67b7c-ei-user-geo-region)
 
 ### `pantheon/v1/ei/user/interest`
 
