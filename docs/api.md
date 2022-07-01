@@ -201,7 +201,7 @@ The current user country name.
 
 The current user's region, state, or province.
 
-**Return Type:** __
+**Return Type:** _string_
 
 [Reference](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-region)
 
