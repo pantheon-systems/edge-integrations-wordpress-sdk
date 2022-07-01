@@ -185,7 +185,7 @@ function do_not_send_vary_headers() : array {
 
 ### `pantheon.ei.custom_header_data`
 
-This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before the it's returned.
+This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before it's returned.
 
 #### Parameters
 
