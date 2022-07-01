@@ -85,6 +85,14 @@ Returns a list of enabled segments for personalization.
 
 [Reference](https://pantheon.stoplight.io/docs/edge-integrations/48045c3028625-ei-segments)
 
+### `pantheon/v1/ei/segments/connection`
+
+The list of available connection segments.
+
+**Return Type:** _array_
+
+[Reference]()
+
 ### `pantheon/v1/ei/segments/geo`
 
 The list of available geolocation segments.
