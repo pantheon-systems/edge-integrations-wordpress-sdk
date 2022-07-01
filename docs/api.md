@@ -41,81 +41,152 @@ _(object)_
 
 Current Edge Integrations configuration.
 
-**Return Type:** _object_
+#### Return
+_(object)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/edaa3dbe9bca3-ei-config)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config`
+
+#### Reference
+
+[`pantheon/v1/ei/config`](https://pantheon.stoplight.io/docs/edge-integrations/edaa3dbe9bca3-ei-config)
 
 ### `pantheon/v1/ei/config/geo/allowed`
 
 Edge Integrations Geolocation configuration settings.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/96585a3c74391-ei-config-geo-allowed)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/geo/allowed`
+
+#### Reference
+
+[`pantheon/v1/ei/config/geo/allowed`]
+(https://pantheon.stoplight.io/docs/edge-integrations/96585a3c74391-ei-config-geo-allowed)
 
 ### `pantheon/v1/ei/config/interest/cookie-expiration`
 
 The interest cookie expiration in days.
 
-**Return Type:** _int_
+#### Return
+_(int)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/15b15bd2b7eff-ei-config-interest-cookie-expiration)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/cookie-expiration`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/cookie-expiration`](https://pantheon.stoplight.io/docs/edge-integrations/15b15bd2b7eff-ei-config-interest-cookie-expiration)
 
 ### `pantheon/v1/ei/config/interest/post-types`
 
 The currently enabled post types for interest tracking.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/c5db87f36cc21-ei-config-interest-post-types)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/post-types`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/post-types`](https://pantheon.stoplight.io/docs/edge-integrations/c5db87f36cc21-ei-config-interest-post-types)
 
 ### `pantheon/v1/ei/config/interest/taxonomies`
 
 The current list of enabled taxonomies for Edge Integrations interest tracking.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/fb47b8ec8fa31-ei-config-interest-taxonomies)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/taxonomies`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/taxonomies`](https://pantheon.stoplight.io/docs/edge-integrations/fb47b8ec8fa31-ei-config-interest-taxonomies)
 
 ### `pantheon/v1/ei/config/interest/threshold`
 
 The Edge Integrations interest tracking threshold.
 
-**Return Type:** _int_
+#### Return
+_(int)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/970ac042750be-ei-config-interest-threshold)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/threshold`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/threshold`](https://pantheon.stoplight.io/docs/edge-integrations/970ac042750be-ei-config-interest-threshold)
 
 ### `pantheon/v1/ei/segments`
 
 Returns a list of enabled segments for personalization.
 
-**Return Type:** _object_
+#### Return
+_(object)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/48045c3028625-ei-segments)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments`
+
+#### Reference
+
+[`pantheon/v1/ei/segments`](https://pantheon.stoplight.io/docs/edge-integrations/48045c3028625-ei-segments)
 
 ### `pantheon/v1/ei/segments/connection`
 
 The list of available connection segments.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference]()
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/connection`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/connection`](https://pantheon.stoplight.io/docs/edge-integrations/f8f8f8f8f8f8f-ei-segments-connection)
 
 ### `pantheon/v1/ei/segments/geo`
 
 The list of available geolocation segments.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/68d178a2e5511-ei-segments-geo)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/geo`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/geo`](https://pantheon.stoplight.io/docs/edge-integrations/68d178a2e5511-ei-segments-geo)
 
 ### `pantheon/v1/ei/segments/interests`
 
 The list of available interest terms based on the enabled interest taxonomies.
 
-**Return Type:** _array_
+#### Return
+_(array)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/79cac6693543c-ei-segments-interests)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/interests`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/interests`](https://pantheon.stoplight.io/docs/edge-integrations/79cac6693543c-ei-segments-interests)
 
 ### `pantheon/v1/ei/user`
 
@@ -157,69 +228,121 @@ The region of the user.
 
 The user's interest.
 
-**Return Type:** _object_
+#### Return
+_(object)_
 
 #### Example
 
 `GET https://domain.com/wp-json/pantheon/v1/ei/user?interest=foo&country-code=US`
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/9adbc8702b480-ei-user)
+#### Reference
+
+[`pantheon/v1/ei/user`](https://pantheon.stoplight.io/docs/edge-integrations/9adbc8702b480-ei-user)
 
 ### `pantheon/v1/ei/user/conn-speed`
 
 Current user connection speed.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/df582b33b8768-ei-user-conn-speed)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/conn-speed`
+
+#### Reference
+
+[`pantheon/v1/ei/user/conn-speed`](https://pantheon.stoplight.io/docs/edge-integrations/df582b33b8768-ei-user-conn-speed)
 
 ### `pantheon/v1/ei/user/conn-type`
 
 The current user connection type.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/eb8e9ddfc5c03-ei-user-conn-type)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/conn-type`
+
+#### Reference
+
+[`pantheon/v1/ei/user/conn-type`](https://pantheon.stoplight.io/docs/edge-integrations/eb8e9ddfc5c03-ei-user-conn-type)
 
 ### `pantheon/v1/ei/user/geo/city`
 
 The current user city.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/dfa8f040f1594-ei-user-geo-city)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/city`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/city`](https://pantheon.stoplight.io/docs/edge-integrations/dfa8f040f1594-ei-user-geo-city)
 
 ### `pantheon/v1/ei/user/geo/country-code`
 
 The current user country code.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/country-code`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/country-code`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
 
 ### `pantheon/v1/ei/user/geo/country-name`
 
 The current user country name.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/country-name`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/country-name`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country)
 
 ### `pantheon/v1/ei/user/geo/region`
 
 The current user's region, state, or province.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-region)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/region`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/region`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-region)
 
 ### `pantheon/v1/ei/user/interest`
 
 The current user interest.
 
-**Return Type:** _string_
+#### Return
+_(string)_
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/d50bfdfaea613-ei-user-interest)
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/interest`
+
+#### Reference
+
+[`pantheon/v1/ei/user/interest`](https://pantheon.stoplight.io/docs/edge-integrations/d50bfdfaea613-ei-user-interest)
 
 ## Function Reference
 
