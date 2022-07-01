@@ -151,6 +151,10 @@ The user's interest.
 
 **Return Type:** _object_
 
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user?interest=foo&country-code=US`
+
 [Reference](https://pantheon.stoplight.io/docs/edge-integrations/9adbc8702b480-ei-user)
 
 ### `pantheon/v1/ei/user/conn-speed`
