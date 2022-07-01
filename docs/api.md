@@ -25,9 +25,17 @@ Full documentation on the API endpoints and access to test responses is availabl
 
 The main Pantheon Edge Integrations API endpoint.
 
-**Return Type:** _object_
+#### Return
 
-[Reference](https://pantheon.stoplight.io/docs/edge-integrations/0cda792ad26fe-ei)
+_(object)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei`
+
+#### Reference
+
+[`pantheon/v1/ei`](https://pantheon.stoplight.io/docs/edge-integrations/0cda792ad26fe-ei)
 
 ### `pantheon/v1/ei/config`
 
