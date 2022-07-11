@@ -10,10 +10,7 @@ use Pantheon\EI\WP\API;
 
 Doing this allows you to use the functions without the full namespace prefix. 
 
-**More information**
-
-* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
-* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+For more information on this, you may refer to: [Namespaces](https://www.php.net/manual/en/language.namespaces.php)(php.net), or [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards).
 
 ## API Documentation and Testing
 
