@@ -2,7 +2,7 @@
 
 ## Namespace: `Pantheon\EI\WP`
 
-The base namespace for the WordPress Edge Integrations plugin is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+The base namespace for the WordPress Edge Integrations plugin is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file. For example:
 
 ```php
 use Pantheon\EI\WP;
@@ -10,11 +10,9 @@ use Pantheon\EI\WP;
 
 Doing this allows you to use the functions without the full namespace prefix. 
 
-**More information**
-* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
-* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+For more information on this, you may refer to: [Namespaces](https://www.php.net/manual/en/language.namespaces.php)(php.net), or [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports)(engineering.hmn.md/standards).
 
-## Constant reference
+## Constant Reference
 
 ### `PANTHEON_EDGE_INTEGRATIONS_DIR`
 
@@ -28,25 +26,41 @@ The path to the Pantheon Edge Integrations main plugin file.
 
 The current version of the Pantheon Edge Integrations plugin.
 
-## Function reference
+## Function Reference
 
 ### `WP\get_supported_vary_headers`
 
-Gets an array of the vary headers supported by the plugin. Before returning the array of vary headers, the [`pantheon.ei.supported_vary_headers`](#pantheoneisupportedvaryheaders) filter is applied. Only the headers (the _keys_ of `pantheon.ei.supported_vary_headers`) are returned.
+Gets an array of the vary headers supported by the plugin. Before returning the array of vary headers, the [`pantheon.ei.supported_vary_headers`](#pantheoneisupportedvaryheaders) filter is applied. Only the headers- or the _keys_ of `pantheon.ei.supported_vary_headers`- are returned.
 
 #### Return
 
-__(array)__ An array of the vary headers supported by the plugin.
+_(array)_ An array of the vary headers supported by the plugin.
 
 ### `WP\update_vary_headers`
 
-Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
+Use this function if you want to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
 
 #### Parameters
 
-`$key` _(array)_ Key for the header, or array of keys.
+<dl>
 
-`$data` _(array)_ Data to pass to the HeaderData class.
+<dt>`$key` (array)</dt>
+
+<dd>
+
+  Key for the header, or array of keys.
+
+</dd>
+
+<dt>`$data` (array)</dt>
+
+<dd>
+
+Data to pass to the HeaderData class.
+
+</dd>
+
+</dl>
 
 #### Example
 
@@ -73,7 +87,7 @@ Validates header data received from the CDN for any supported vary headers, incl
 
 #### Return
 
-__(bool)__ Whether Edge Integrations have been configured and the CDN is returning data.
+_(bool)_ Lets you know whether Edge Integrations have been configured and the CDN is returning data.
 
 #### Example
 
@@ -95,7 +109,17 @@ Fires immediately after the `pantheon-ei` script is enqueued.
 
 #### Parameters
 
-`$args` _(array)_ An arguments array containing `plugin_version` (the `PANTHEON_EDGE_INTEGRATIONS_VERSION` value) and `plugin_file` (the `PANTHEON_EDGE_INTEGRATIONS_FILE` value).
+<dl>
+
+<dt>`$args` (array)</dt>
+
+<dd>
+
+An argument array containing `plugin_version` (the `PANTHEON_EDGE_INTEGRATIONS_VERSION` value) and `plugin_file` (the `PANTHEON_EDGE_INTEGRATIONS_FILE` value).
+	
+</dd>
+
+</dl>
 
 #### Example
 
@@ -112,17 +136,17 @@ function after_enqueue_script( array $args ) {
 }
 ```
 
-## Filter reference
+## Filter Reference
 
 ### `pantheon.ei.supported_vary_headers`
 
 Allows developers to modify the list of vary headers that are supported by the plugin.
 
-Array keys are the vary headers, and the values are whether or not they are supported.
+Array keys are the vary headers, and the values tell you whether or not they are supported.
 
 #### Parameters
 
-__(array)__ An array of vary headers and whether or not they are supported. The default values are below:
+_(array)_ An array of vary headers and whether or not they are supported. The default values are below:
 
 ```php
 $vary_headers = [
@@ -138,6 +162,7 @@ $vary_headers = [
 ```
 
 #### Example
+
 To set the country _name_ as the only supported personalization type:
 
 ```php
@@ -162,7 +187,7 @@ function filter_vary_headers( array $vary_headers ) {
 }
 ```
 
-To set the vary headers to not be sent until consent has been granted (see also [Pantheon Edge Integrations Consent Management](https://github.com/pantheon-systems/pantheon-edge-integrations-consent-management)):
+To set the vary headers to not be sent until consent has been granted (refer to [Pantheon Edge Integrations Consent Management](https://github.com/pantheon-systems/pantheon-edge-integrations-consent-management) for additional information):
 
 ```php
 function check_consent() {
@@ -185,7 +210,7 @@ function do_not_send_vary_headers() : array {
 
 ### `pantheon.ei.custom_header_data`
 
-This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before it's returned.
+This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before it is returned.
 
 #### Parameters
 
@@ -207,11 +232,11 @@ Allows developers to filter the output of the `WP\edge_integrations_enabled()` f
 
 This can be used to force the application to think that the headers have been detected when they haven't.
 
-**Note:** This does not change whether the headers exist, output may be unexpected if this value is "true" but the headers are not present.
+**Note:** This does not change whether the headers exist; output may be unexpected if this value is `true`, but the headers are not present.
 
 #### Parameters
 
-__(bool)__ `$headers_enabled` Whether Edge Integrations have been configured and the CDN is returning data.
+_(bool)_ `$headers_enabled` Whether Edge Integrations have been configured and the CDN is returning data.
 
 #### Example
 
