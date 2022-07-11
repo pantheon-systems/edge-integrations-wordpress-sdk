@@ -358,11 +358,7 @@ _(string)_
 
 ## Function Reference
 
-<Alert title="Note"  type="info" >
-
-The purpse of the API endpoints is to expose and reflect data that can be retrieved using various PHP functions in the plugin, as well as the endpoint callback functions used those to return data. We advise that you use the originating functions rather than the API functions, unless you are explicitly interacting with the WordPress Edge Integrations API.
-
-</Alert>
+**Note:** The purpse of the API endpoints is to expose and reflect data that can be retrieved using various PHP functions in the plugin, as well as the endpoint callback functions used those to return data. We advise that you use the originating functions rather than the API functions, unless you are explicitly interacting with the WordPress Edge Integrations API.
 
 ### `API\get_all_user_data`
 
