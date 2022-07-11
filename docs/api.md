@@ -19,7 +19,7 @@ Doing this allows you to use the functions without the full namespace prefix.
 
 Full documentation on the API endpoints and access to test responses is available on [Stoplight](https://pantheon.stoplight.io/docs/edge-integrations/fed9ddb2a5046-ei).
 
-## Endpoint reference
+## Endpoint Reference
 
 ### `pantheon/v1/ei`
 
@@ -42,6 +42,7 @@ _(object)_
 Current Edge Integrations configuration.
 
 #### Return
+
 _(object)_
 
 #### Example
@@ -103,6 +104,7 @@ _(array)_
 The current list of enabled taxonomies for Edge Integrations interest tracking.
 
 #### Return
+
 _(array)_
 
 #### Example
@@ -163,6 +165,7 @@ _(array)_
 The list of available geolocation segments.
 
 #### Return
+
 _(array)_
 
 #### Example
@@ -178,6 +181,7 @@ _(array)_
 The list of available interest terms based on the enabled interest taxonomies.
 
 #### Return
+
 _(array)_
 
 #### Example
@@ -192,7 +196,7 @@ _(array)_
 
 Current Edge Integrations client data.
 
-#### Query parameters
+#### Query Parameters
 
 All the Edge Integrations user endpoints can have any of the following query parameters added to the URL to return the specified data.
 
@@ -229,6 +233,7 @@ The region of the user.
 The user's interest.
 
 #### Return
+
 _(object)_
 
 #### Example
@@ -244,6 +249,7 @@ _(object)_
 Current user connection speed.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -259,6 +265,7 @@ _(string)_
 The current user connection type.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -274,6 +281,7 @@ _(string)_
 The current user city.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -289,6 +297,7 @@ _(string)_
 The current user country code.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -304,6 +313,7 @@ _(string)_
 The current user country name.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -319,6 +329,7 @@ _(string)_
 The current user's region, state, or province.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -334,6 +345,7 @@ _(string)_
 The current user interest.
 
 #### Return
+
 _(string)_
 
 #### Example
@@ -346,7 +358,11 @@ _(string)_
 
 ## Function Reference
 
-**Note:** The design of the API endpoints is to expose and reflect back data that can be retrieved using various PHP functions in the plugin and the endpoint callback functions use those to return data. It is advisable to use the originating functions themselves rather than the API functions unless you are explicitly interacting with the WordPress Edge Integrations API.
+<Alert title="Note"  type="info" >
+
+The purpse of the API endpoints is to expose and reflect data that can be retrieved using various PHP functions in the plugin, as well as the endpoint callback functions used those to return data. We advise that you use the originating functions rather than the API functions, unless you are explicitly interacting with the WordPress Edge Integrations API.
+
+</Alert>
 
 ### `API\get_all_user_data`
 
@@ -358,7 +374,7 @@ Return the current user's personalization data.
 
 #### Return
 
-The current user's personalization data. If a `WP_REST_Request` was passed, the personalization data is passed with the passed arguments from the request.
+The current user's personalization data. If a `WP_REST_Request` was passed, the personalization data is passed with the arguments that were passed in the request.
 
 #### Example
 
