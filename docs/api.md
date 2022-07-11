@@ -1,224 +1,389 @@
 # WordPress Edge Integrations: API
 
-## Namespace: `Pantheon\EI\WP`
+## Namespace: `Pantheon\EI\WP\API`
 
-The namespace for the analytics functionality is `Pantheon\EI\WP`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
+The namespace for the API functionality is `Pantheon\EI\WP\API`. When using functions that are part of this namespace, it is recommended that you `use` the namespace at the top of your file.
 
 ```php
-use Pantheon\EI\WP;
+use Pantheon\EI\WP\API;
 ```
 
 Doing this allows you to use the functions without the full namespace prefix. 
 
-**More information**
-* [Namespaces](https://www.php.net/manual/en/language.namespaces.php) (php.net)
-* [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards)
+For more information on this, you may refer to: [Namespaces](https://www.php.net/manual/en/language.namespaces.php)(php.net), or [Namespace and Function Imports](https://engineering.hmn.md/standards/style/php/#namespace-and-function-imports) (engineering.hmn.md/standards).
 
-## Constant reference
+## API Documentation and Testing
 
-### `PANTHEON_EDGE_INTEGRATIONS_DIR`
+Full documentation on the API endpoints and access to test responses is available on [Stoplight](https://pantheon.stoplight.io/docs/edge-integrations/fed9ddb2a5046-ei).
 
-The path to the Pantheon Edge Integrations plugin.
+## Endpoint Reference
 
-### `PANTHEON_EDGE_INTEGRATIONS_FILE`
+### `pantheon/v1/ei`
 
-The path to the Pantheon Edge Integrations main plugin file.
-
-### `PANTHEON_EDGE_INTEGRATIONS_VERSION`
-
-The current version of the Pantheon Edge Integrations plugin.
-
-## Function reference
-
-### `WP\get_supported_vary_headers`
-
-Gets an array of the vary headers supported by the plugin. Before returning the array of vary headers, the [`pantheon.ei.supported_vary_headers`](#pantheoneisupportedvaryheaders) filter is applied. Only the headers (the _keys_ of `pantheon.ei.supported_vary_headers`) are returned.
+The main Pantheon Edge Integrations API endpoint.
 
 #### Return
 
-__(array)__ An array of the vary headers supported by the plugin.
-
-### `WP\update_vary_headers`
-
-Use this function if you wish to add a custom [header name](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary#header-name) to the vary header and define any custom data.
-
-#### Parameters
-
-`$key` _(array)_ Key for the header, or array of keys.
-
-`$data` _(array)_ Data to pass to the HeaderData class.
+_(object)_
 
 #### Example
 
-```php
-use Pantheon\EI\WP;
+`GET https://domain.com/wp-json/pantheon/v1/ei`
 
-$key = [ 'Comes' ];
+#### Reference
 
-$data = [
-    'HTTP_IGNORED' => 'HTTP Ignored Entry',
-    'IGNORED_ENTRY' => 'Completely ignored entry',
-    'HTTP_SHOULD_BE_FOUND' => 'Should be found',
-    'HTTP_VARY' => 'Something, Wicked, This, Way',
-];
+[`pantheon/v1/ei`](https://pantheon.stoplight.io/docs/edge-integrations/0cda792ad26fe-ei)
 
-WP\update_vary_headers( $key, $data )
-```
+### `pantheon/v1/ei/config`
 
-### `WP\edge_integrations_enabled`
-
-Checks if Edge Integrations have been configured at the CDN layer.
-
-Validates header data received from the CDN for any supported vary headers, including those that have been added by `update_vary_headers`.
+Current Edge Integrations configuration.
 
 #### Return
 
-__(bool)__ Whether Edge Integrations have been configured and the CDN is returning data.
+_(object)_
 
 #### Example
 
-```php
-use Pantheon\EI\WP;
+`GET https://domain.com/wp-json/pantheon/v1/ei/config`
 
-if ( WP\edge_integrations_enabled() ) {
-	// Do something with personalization data.
-} else {
-	// Do something else with generic information.
-}
-```
+#### Reference
 
-## Action reference
+[`pantheon/v1/ei/config`](https://pantheon.stoplight.io/docs/edge-integrations/edaa3dbe9bca3-ei-config)
 
-### `pantheon.ei.after_enqueue_script`
+### `pantheon/v1/ei/config/geo/allowed`
 
-Fires immediately after the `pantheon-ei` script is enqueued.
+Edge Integrations Geolocation configuration settings.
+
+#### Return
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/geo/allowed`
+
+#### Reference
+
+[`pantheon/v1/ei/config/geo/allowed`]
+(https://pantheon.stoplight.io/docs/edge-integrations/96585a3c74391-ei-config-geo-allowed)
+
+### `pantheon/v1/ei/config/interest/cookie-expiration`
+
+The interest cookie expiration in days.
+
+#### Return
+_(int)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/cookie-expiration`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/cookie-expiration`](https://pantheon.stoplight.io/docs/edge-integrations/15b15bd2b7eff-ei-config-interest-cookie-expiration)
+
+### `pantheon/v1/ei/config/interest/post-types`
+
+The currently enabled post types for interest tracking.
+
+#### Return
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/post-types`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/post-types`](https://pantheon.stoplight.io/docs/edge-integrations/c5db87f36cc21-ei-config-interest-post-types)
+
+### `pantheon/v1/ei/config/interest/taxonomies`
+
+The current list of enabled taxonomies for Edge Integrations interest tracking.
+
+#### Return
+
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/taxonomies`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/taxonomies`](https://pantheon.stoplight.io/docs/edge-integrations/fb47b8ec8fa31-ei-config-interest-taxonomies)
+
+### `pantheon/v1/ei/config/interest/threshold`
+
+The Edge Integrations interest tracking threshold.
+
+#### Return
+_(int)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/config/interest/threshold`
+
+#### Reference
+
+[`pantheon/v1/ei/config/interest/threshold`](https://pantheon.stoplight.io/docs/edge-integrations/970ac042750be-ei-config-interest-threshold)
+
+### `pantheon/v1/ei/segments`
+
+Returns a list of enabled segments for personalization.
+
+#### Return
+_(object)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments`
+
+#### Reference
+
+[`pantheon/v1/ei/segments`](https://pantheon.stoplight.io/docs/edge-integrations/48045c3028625-ei-segments)
+
+### `pantheon/v1/ei/segments/connection`
+
+The list of available connection segments.
+
+#### Return
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/connection`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/connection`](https://pantheon.stoplight.io/docs/edge-integrations/be2e42421ddde-ei-segments-connection)
+
+### `pantheon/v1/ei/segments/geo`
+
+The list of available geolocation segments.
+
+#### Return
+
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/geo`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/geo`](https://pantheon.stoplight.io/docs/edge-integrations/68d178a2e5511-ei-segments-geo)
+
+### `pantheon/v1/ei/segments/interests`
+
+The list of available interest terms based on the enabled interest taxonomies.
+
+#### Return
+
+_(array)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/segments/interests`
+
+#### Reference
+
+[`pantheon/v1/ei/segments/interests`](https://pantheon.stoplight.io/docs/edge-integrations/79cac6693543c-ei-segments-interests)
+
+### `pantheon/v1/ei/user`
+
+Current Edge Integrations client data.
+
+#### Query Parameters
+
+All the Edge Integrations user endpoints can have any of the following query parameters added to the URL to return the specified data.
+
+##### `city`
+
+The city of the user.
+
+##### `conn-speed`
+
+The connection speed of the user.
+
+##### `conn-type`
+
+The connection type of the user.
+
+##### `continent-code`
+
+The continent code of the user.
+
+##### `country-code`
+
+The country code of the user.
+
+##### `country-name`
+
+The country name of the user.
+
+##### `region`
+
+The region of the user.
+
+##### `interest`
+
+The user's interest.
+
+#### Return
+
+_(object)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user?interest=foo&country-code=US`
+
+#### Reference
+
+[`pantheon/v1/ei/user`](https://pantheon.stoplight.io/docs/edge-integrations/9adbc8702b480-ei-user)
+
+### `pantheon/v1/ei/user/conn-speed`
+
+Current user connection speed.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/conn-speed`
+
+#### Reference
+
+[`pantheon/v1/ei/user/conn-speed`](https://pantheon.stoplight.io/docs/edge-integrations/df582b33b8768-ei-user-conn-speed)
+
+### `pantheon/v1/ei/user/conn-type`
+
+The current user connection type.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/conn-type`
+
+#### Reference
+
+[`pantheon/v1/ei/user/conn-type`](https://pantheon.stoplight.io/docs/edge-integrations/eb8e9ddfc5c03-ei-user-conn-type)
+
+### `pantheon/v1/ei/user/geo/city`
+
+The current user city.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/city`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/city`](https://pantheon.stoplight.io/docs/edge-integrations/dfa8f040f1594-ei-user-geo-city)
+
+### `pantheon/v1/ei/user/geo/country-code`
+
+The current user country code.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/country-code`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/country-code`](https://pantheon.stoplight.io/docs/edge-integrations/d869daad71b8d-ei-user-geo-country-code)
+
+### `pantheon/v1/ei/user/geo/country-name`
+
+The current user country name.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/country-name`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/country-name`](https://pantheon.stoplight.io/docs/edge-integrations/69ec8d44d9c66-ei-user-geo-country-name)
+
+### `pantheon/v1/ei/user/geo/region`
+
+The current user's region, state, or province.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/geo/region`
+
+#### Reference
+
+[`pantheon/v1/ei/user/geo/region`](https://pantheon.stoplight.io/docs/edge-integrations/477a8bed67b7c-ei-user-geo-region)
+
+### `pantheon/v1/ei/user/interest`
+
+The current user interest.
+
+#### Return
+
+_(string)_
+
+#### Example
+
+`GET https://domain.com/wp-json/pantheon/v1/ei/user/interest`
+
+#### Reference
+
+[`pantheon/v1/ei/user/interest`](https://pantheon.stoplight.io/docs/edge-integrations/d50bfdfaea613-ei-user-interest)
+
+## Function Reference
+
+**Note:** The purpse of the API endpoints is to expose and reflect data that can be retrieved using various PHP functions in the plugin, as well as the endpoint callback functions used those to return data. We advise that you use the originating functions rather than the API functions, unless you are explicitly interacting with the WordPress Edge Integrations API.
+
+### `API\get_all_user_data`
+
+Return the current user's personalization data.
 
 #### Parameters
 
-`$args` _(array)_ An arguments array containing `plugin_version` (the `PANTHEON_EDGE_INTEGRATIONS_VERSION` value) and `plugin_file` (the `PANTHEON_EDGE_INTEGRATIONS_FILE` value).
+`$request` _(WP\_REST\_Request)_ The REST API request.
+
+#### Return
+
+The current user's personalization data. If a `WP_REST_Request` was passed, the personalization data is passed with the arguments that were passed in the request.
 
 #### Example
 
-```php
-add_action( 'pantheon.ei.after_enqueue_script', 'after_enqueue_script' );
-function after_enqueue_script( array $args ) {
-	$plugin_version = $args['plugin_version'];
-	$plugin_file    = $args['plugin_file'];
-
-	wp_localize_script( 'pantheon-ei', 'myLocalizedObj', [
-		'plugin_version' => $plugin_version,
-		'plugin_file'    => $plugin_file,
-	] );
-}
 ```
+use Pantheon\EI\WP\API;
+use WP_REST_Request;
 
-## Filter reference
+$request = new WP_REST_Request( 'GET', '/pantheon/v1/ei/user' );
+$request->set_query_params( [
+	'interest' => 'foo',
+	'country-code' => 'US',
+] );
 
-### `pantheon.ei.supported_vary_headers`
+$response = rest_do_request( $request );
+$country_code = 'country-code'; // Storing the parameter into a variable allows requests to be made with that parameter via PHP.
 
-Allows developers to modify the list of vary headers that are supported by the plugin.
-
-Array keys are the vary headers, and the values are whether or not they are supported.
-
-#### Parameters
-
-__(array)__ An array of vary headers and whether or not they are supported. The default values are below:
-
-```php
-$vary_headers = [
-	'P13n-Geo-Country-Code' => true,
-	'P13n-Geo-Country-Name' => false,
-	'P13n-Geo-Region' => false,
-	'P13n-Geo-City' => false,
-	'P13n-Geo-Continent-Code' => false,
-	'P13n-Geo-Conn-Type' => false,
-	'P13n-Geo-Conn-Speed' => false,
-	'P13n-Interest' => true,
-];
-```
-
-#### Example
-To set the country _name_ as the only supported personalization type:
-
-```php
-add_filter( 'pantheon.ei.supported_vary_headers', 'filter_vary_headers' );
-function filter_vary_headers( array $vary_headers ) {
-	$vary_headers['P13n-Geo-Country-Code'] = false;
-	$vary_headers['P13n-Geo-Country-name'] = true;
-	$vary_headers['P13n-Interest'] = false;
-
-	return $vary_headers;
-}
-```
-
-To use the country-based Geolocation data as the only supported personalization type:
-
-```php
-add_filter( 'pantheon.ei.supported_vary_headers', 'filter_vary_headers' );
-function filter_vary_headers( array $vary_headers ) {
-	$vary_headers['P13n-Interest'] = false;
-
-	return $vary_headers;
-}
-```
-
-To set the vary headers to not be sent until consent has been granted (see also [Pantheon Edge Integrations Consent Management](https://github.com/pantheon-systems/pantheon-edge-integrations-consent-management)):
-
-```php
-function check_consent() {
-	if ( ! function_exists( 'wp_has_consent' ) ) {
-		return;
-	}
-
-	if ( ! wp_has_consent() ) {
-		add_filter( 'pantheon.ei.supported_vary_headers', 'do_not_send_vary_headers' );
-	}
-}
-
-function do_not_send_vary_headers() : array {
-	return [
-		'P13n-Geo-Country-Code' => false,
-		'P13n-Interest' => false,
-	];
-}
-```
-
-### `pantheon.ei.custom_header_data`
-
-This filter is applied in the `update_vary_headers` function and allows engineers to modify the custom `HeaderData` before the it's returned.
-
-#### Parameters
-
-_(array)_ `HeaderData` data as an array.
-
-#### Example
-
-```php
-add_filter( 'pantheon.ei.custom_header_data', 'pantheon_ei_customize_header_data' );
-function pantheon_ei_customize_header_data( array $data ) : array {
-	// Remove last element from $data.
-	return array_pop( $data );
-}
-```
-
-### `pantheon.ei.enabled`
-
-Allows developers to filter the output of the `WP\edge_integrations_enabled()` function.
-
-This can be used to force the application to think that the headers have been detected when they haven't.
-
-**Note:** This does not change whether the headers exist, output may be unexpected if this value is "true" but the headers are not present.
-
-#### Parameters
-
-__(bool)__ `$headers_enabled` Whether Edge Integrations have been configured and the CDN is returning data.
-
-#### Example
-
-```php
-// Force Edge Integrations to appear enabled. This will disable the notice that appears when the headers are not detected.
-add_filter( 'pantheon.ei.enabled', '__return_true' );
-
-// Force Edge Integrations to appear disabled. This display the notice that appears when the headers are not detected. It will not change whether Edge Integrations functions will work.
-add_filter( 'pantheon.ei.enabled', '__return_false' );
+$country = get_all_user_data( $request )->geo-$country_code; // Returns "US".
+$interest = get_all_user_data( $request )->interest; // Returns "foo".
 ```
