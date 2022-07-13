@@ -22,9 +22,7 @@ Returns geolocation data for the current user.
 
 #### Parameters
 
-`$data_type` _(string)_ The type of geolocation data to return. `get_geo` accepts the following values: `country`, `region`, `city`, `continent`, `conn-speed`, `conn-type`, `lat`, `lon`, `latlon` or an empty string. All other values will return an empty string and the default is `''`. Passing `geo` is also allowed as an alias for `country`, but the latter is recommended. If an empty string is passed, `get_geo` will return all Audience data encoded in JSON format.
-
-**Note:** `lat`, `lon` and `latlon` do not currently return any data.
+`$data_type` _(string)_ The type of geolocation data to return. `get_geo` accepts the following values: `country-code`, `country-name`, `region`, `city`, `continent-code`, `conn-speed`, `conn-type` or an empty string.The default data type is `''`. If an empty string is passed, `get_geo` will return all Audience data encoded in JSON format.
 
 `$data` _(mixed)_ Data to pass directly into the `EI\HeaderData` class. By default, `EI\HeaderData` will use the `$_SERVER` superglobal to get the data.
 
@@ -37,7 +35,7 @@ _(string)_ The specific requested geolocation data or all geolocation data in a 
 ```php
 use Pantheon\EI\WP\Geo;
 ...
-$geo = Geo\get_geo( 'country' ); // Returns the country ISO code for the current user, e.g. 'US'.
+$geo = Geo\get_geo( 'country-code' ); // Returns the country ISO code for the current user, e.g. 'US'.
 
 switch ( $geo ) {
 	case 'US':
@@ -72,45 +70,75 @@ if ( ! in_array( $data_type, Geo\get_geo_allowed_values(), true ) ) {
 }
 ```
 
+### `Geo\get_geo_allowed_headers`
+
+Returns an array of allowed headers.
+
+This is distinctly different from `get_geo_allowed_values` in that these are the _actual_ headers that the plugin looks for in the HTTP response, not just the data type used to return that data. `get_geo_allowed_headers` uses `get_geo_allowed_values` to build the list of allowed headers, so if some values are being passed into `pantheon.ei.geo_allowed_values` that do not align with actual _headers_ being returned, the `pantheon.ei.geo_allowed_headers` filter must be used to ensure your code does not produce errors.
+
+_See [`pantheon.ei.geo_allowed_headers`](#pantheoneigeoallowedheaders)._
+
+#### Example
+
+```php
+use Pantheon\EI\WP\Geo;
+
+$headers = Geo\get_geo_allowed_headers();
+
+// Country code not found in HTTP response.
+if ( ! in_array( 'p13n-geo-country-code', $headers, true ) ) {
+	return;
+}
+```
+
 ## Filter reference
 
-### `pantheon.ei.parsed_geo_data`
+### `pantheon.ei.get_all_geo`
 
-Takes the geolocation data from `EI\HeaderData` and allows it to be filtered.
+Builds the array of all geolocation data using `EI\HeaderData::personalizationObject()` for all allowed headers (based on `get_geo_allowed_headers()`) and allows it to be filtered. Runs before JSON-encoding when `get_geo()` is called without any parameters passed.
 
 For filtering purposes, the data passed is an array of key/value pairs of geolocation data. Because this filter fires after the data types are checked, it is _possible_ (but not recommended) to provide data that might otherwise be filtered out.
 
 #### Parameters
 
-_(array)_ The full, parsed Audience geolocation data as an array.
+_(array)_ All the available geolocation data as an array.
 
 #### Example
 
 ```php
-add_filter( 'pantheon.ei.parsed_geo_data', 'filter_parsed_geo_data' );
+add_filter( 'pantheon.ei.get_all_geo', 'filter_geo_data' );
 
-function filter_parsed_geo_data( array $data ) : array {
+function filter_geo_data( array $data ) : array {
 	$data['city'] = 'Salt Lake City';
-	$data['region'] = 'Utah';
-	$data['country'] = 'US';
+	$data['region'] = 'UT';
+	$data['country-code'] = 'US';
 	return $data;
 }
 ```
 
-### `pantheon.ei.get_geo`
+### `pantheon.ei.get_geo_{$data_type}`
 
-Allows the geolocation data to be filtered. This filter fires after the data is parsed and immediately before it is returned. This is the last stop before the data is output.
+Allows individual geolocation data to be filtered. This filter fires after the data is parsed and immediately before it is returned. This is the last stop before the data is output.
+
+This filter must be used with one of the available geolocation data types (e.g. `country-code` or `region`) passed as the data type.
 
 #### Parameters
 
 _(string)_ The requested geolocation data.
 
 ```php
-add_filter( 'pantheon.ei.get_geo', 'override_get_geo' );
+add_filter( 'pantheon.ei.get_geo_continent-code', 'override_get_geo_non_eu' );
 
-function override_get_geo( string $value ) : string {
+/**
+ * Default to US if the country code is not in the EU.
+ * 
+ * @param string $value The continent code to filter
+ * 
+ * @return string The continent code or the filtered continent code (US) if a non-EU country is detected.
+ */
+function override_get_geo_non_eu( string $value ) : string {
 	// European Union countries.
-	$eu = [ 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE' ];
+	$eu = [ 'AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'SE' ];
 
 	// Default to US if not in the EU.
 	if ( ! in_array( $value, $eu ) ) {
@@ -153,39 +181,52 @@ function filter_geo_allowed_values( array $values ) : array {
 	// Remove unsupported data types.
 	unset( $values['region'] );
 	unset( $values['city'] );
-	unset( $values['continent'] );
-	unset( $values['lat'] );
-	unset( $values['lon'] );
-	unset( $values['latlon'] );
+	unset( $values['continent-code'] );
 	unset( $values['conn-speed'] );
 	unset( $values['conn-type'] );
 	return $values;
 }
 ```
 
-## Action reference
+### `pantheon.ei.geo_allowed_headers`
 
-### `pantheon.ei.before_get_geo`
+Allows the list of geolocation headers to check for to be filtered.
 
-Fires after the geolocation data is retrieved but before it is returned.
-
-Allows developers to hook into the geolocation data retrieval process and access the geolocation value, the type of data being requested and the full, passed data, if it exists.
+Note: This does not affect the actual data types that are returned in the HTTP response. However, if the data _is_ available, or you want to disallow (not use) certain types of data, the `get_geo_allowed_headers` return values can be filtered.
 
 #### Parameters
 
-`$value` _(string)_ The geolocation value.
-
-`$data_type` _(string)_ The requested geolocation data type.
-
-`$data` _(mixed)_ Data passed to the `EI\HeaderData` class. By default, this is pulled from the `$_SERVER` superglobal.
+_(array)_ The list of allowed headers.
 
 #### Example
-```php
-add_action( 'pantheon.ei.before_get_geo', 'before_get_geo' );
 
-function before_get_geo( string $value, string $data_type, $data ) {
-	if ( 'country' === $data_type && 'US' === $value ) {
-		// Do something specific to US.
-	}
+```php
+use Pantheon\EI\WP\Geo;
+
+add_filter( 'pantheon.ei.geo_allowed_headers', 'filter_geo_allowed_headers' );
+function filter_geo_allowed_headers( array $headers ) : array {
+	$headers[] = 'postal-code';
+	return $headers;
+}
+
+/*
+ * Get the postal code for the current user assuming the data exists in the HTTP 
+ * response.
+ * 
+ * Note: This assumes that the allowed values filter was bypassed or that this 
+ * header key was explicitly allowed.
+ */
+Geo\get_geo( 'postal-code' );
+```
+
+If fewer header keys are expressly required, the filter allows the default headers to be removed.
+
+```php
+add_filter( 'pantheon.ei.geo_allowed_headers', 'filter_geo_allowed_headers' );
+function filter_geo_allowed_headers( array $headers ) : array {
+	// Remove unsupported headers.
+	unset $headers['conn-speed'];
+	unset $headers['conn-type'];
+	return $headers;
 }
 ```

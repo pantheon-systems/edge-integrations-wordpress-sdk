@@ -8,17 +8,17 @@ Geotargeting is a method that delivers different content to visitors based on th
 
 ### Geotargeting Default Behavior and Available Customizations
 
-Personalized data can be served to visitors based on an array of geo data types. With the `get_geo` function, you can get location-specific data from site visitors, which includes: `country`, `region`, `city`, `continent`, `conn-speed`  (connection speed, e.g. `broadband`) and `conn-type` (connection type, e.g. `wireless`). You can modify these data types using the `pantheon.ei.geo_allowed_values` filter. 
+Personalized data can be served to visitors based on an array of geo data types. With the `get_geo` function, you can get location-specific data from site visitors, which includes: `country-code`, `country-name`, `region`, `city`, `continent-code`, `conn-speed`  (connection speed, e.g. `broadband`) and `conn-type` (connection type, e.g. `wireless`). You can modify these data types using the `pantheon.ei.geo_allowed_values` filter. 
 
 You can also access geo data via the `pantheon.ei.before_get_geo` action. This action fires after the geo data is retrieved, but before it is returned. It allows developers to hook into the geo data retrieval process and access the geo value, the type of data requested, and the full passed data, if it exists.
 
-Additionally, you can retrieve and alter geo data with the `pantheon.ei.get_geo` filter. This filter fires after the data is parsed and before it is returned, making this the last stop before data is output. It also allows developers to modify the requested geo data.
+Additionally, you can retrieve and alter geo data with the `pantheon.ei.get_geo_{$data_type}` filters (e.g. `pantheon.ei.get_geo_country-code` or `pantheon.ei.get_geo_city`). These filters fire after the data is parsed and before it is returned, making them the last stop before data is output. It also allows developers to modify the requested geo data.
 
 ### Test Geotargeting
 
 Geotargeting can be tested or verified in two different ways.
 
-- Use the `pantheon.ei.parsed_geo_data` filter to get the geo data from the [`HeaderData` class](https://github.com/pantheon-systems/pantheon-edge-integrations/) and allow it to be filtered. This filter allows you to spoof geo information by passing in `city`, `region`, `country`, etc.
+- Use the `pantheon.ei.get_all_geo` filter to get the geo data from the [`HeaderData` class](https://github.com/pantheon-systems/pantheon-edge-integrations/) and allow it to be filtered. This filter allows you to spoof geo information by passing in `city`, `region`, `country`, etc. The `pantheon.ei.get_all_geo` filter pulls _all_ of the geo headers and stores it in an array. It is used before JSON-encoding when the `get_geo()` function is called with no parameters.
 
 - Use the `get_geo` function to return the visitor's location from the `HeaderData` class, which can be used in a variety of ways to display personalized content for a given visitor.
 
@@ -48,9 +48,11 @@ Interests can be tested or verified in two different ways.
 
 ### More Resources
 
-- [API](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/master/docs/api.md)
+- [Main](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/master/docs/main.md)
 
 - [Analytics](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/analytics.md)
+
+- [API](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/api.md)
 
 - [Geolocation](https://github.com/pantheon-systems/edge-integrations-wordpress-sdk/blob/main/docs/geo.md)
 
