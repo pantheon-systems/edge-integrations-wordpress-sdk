@@ -1,6 +1,10 @@
 # Pantheon Edge Integrations WordPress SDK
 
-[![Unsupported](https://img.shields.io/badge/pantheon-unsupported-yellow?logo=pantheon&color=FFDC28)](https://pantheon.io/docs/oss-support-levels#unsupported) ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![Commits since latest release](https://img.shields.io/github/commits-since/pantheon-systems/edge-integrations-wordpress-sdk/latest) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
+## Archived project
+This project is **archived** as of August 2024 as it no longer receives active development.
+The architecture provided by the tools in this SDK and the related projects are still valid and will continue to work on Pantheon AGCDN. However, we will not be responding to issues or pull requests or building these tools out more than they are already.
+
+[![Unsupported](https://img.shields.io/badge/pantheon-deprecated-yellow?logo=pantheon&color=FFDC28)](https://docs.pantheon.io/oss-support-levels#deprecated) ![Packagist Version](https://img.shields.io/packagist/v/pantheon-systems/edge-integrations-wordpress-sdk) ![Commits since latest release](https://img.shields.io/github/commits-since/pantheon-systems/edge-integrations-wordpress-sdk/latest) ![MIT License](https://img.shields.io/github/license/pantheon-systems/edge-integrations-wordpress-sdk)
 
 Welcome to the Pantheon Edge Integrations WordPress SDK!
 
